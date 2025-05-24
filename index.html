@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BSc CS Department</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo"> CS Department</h1>
+    <nav class="nav">
+  <a href="#resources" class="nav-link">Student Resources</a>
+  <a href="#news" class="nav-link">News</a>
+  <a href="#articles" class="nav-link">Articles</a>
+  <a href="achievements.html">Achievements</a>
+</nav>
+
+
+  
+
+<!--slide bar-->
+<div id="sidebar" class="sidebar closed">
+  <span class="close-btn" onclick="closeSidebar()">×</span>
+  <h2></h2>
+  <a href="#">Home</a>
+  <a href="#resources" class="nav-link">Student Resources</a>
+  <a href="#news" class="nav-link">News</a>
+  <a href="#articles" class="nav-link">Articles</a>
+  <a href="achievements.html"class=""  >Achievements</a>
+  
+</div>
+
+<div class="content">
+  <a class="open-btn" onclick="openSidebar()">☰ </a>
+ 
+</div>
+
+
+
+    </div>
+  </header>
+
+  <h1 class="faculty-title">OUR FACULTIES </h1>
+
+
+  <main class="container">
+    <!-- Faculty Grid -->
+    <section class="faculty-grid">
+      <!-- 10 faculty images -->
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty1">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+      
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty2">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty3">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty4">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty5">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty6">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty7">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty8">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty9">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+      <div class="faculty-card"onclick="showFacultyDetails('faculty1')">
+        <img src="./img/archana.jpg" alt="Faculty 2" />
+        <div class="faculty-name">archana</div>
+      </div>
+      <!--facualty popup -->
+      <div class="faculty-popup" id="faculty10">
+        <div class="popup-content">
+          <img src="./img/archana.jpg" alt="Dr. Jane Smith" />
+          <div class="faculty-details">
+            <h3>Dr.Archana </h3>
+            <p>🎓 Ph.D. in Computer Science</p>
+            <p>📘 AI & Data Science</p>
+            <p>📧 jane.smith@college.edu</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('faculty1')">&times;</span>
+        </div>
+      </div>
+
+    </section>
+    <section class="faculty-description" style="max-width: 900px; margin: 40px auto; text-align: center; font-size: 1.1rem; color: #444; line-height: 1.6;">
+ <p>
+  Our passionate faculty members are the heart of our department, bringing a wealth of knowledge and experience to ignite curiosity and inspire innovation. They go beyond traditional teaching — nurturing creativity, critical thinking, and a lifelong love of learning. Committed to empowering every student, our educators foster a supportive environment where ideas flourish and futures are shaped. Together, we build a community dedicated to excellence, growth, and success.
+</p>
+ 
+</section>
+
+
+
+    <!-- Tabs -->
+  <section class="tabs-section">
+  <div class="tabs-nav">
+  <button class="tab-button active" data-tab="resources">Student Resources</button>
+  <button class="tab-button" data-tab="news">News</button>
+  <button class="tab-button" data-tab="articles">Articles</button>
+</div>
+
+
+      <div class="tab-content active" id="resources">
+        <div class="cards-grid">
+          <div class="card">
+            <h2>Time Table</h2>
+            <p>Check the current semester timetable.</p>
+            
+             <button id="view-timetable-btn">View</button>
+  
+            <!-- Hidden image that shows after clicking -->
+            <img id="timetable-img" src="./img/archana.jpg" alt="Time Table" style="display:none; margin-top:10px; max-width:100%;" />
+         </div>
+          <div class="card">
+            <h2>Study Materials</h2>
+            <p>Download all relevant materials here.</p>
+            <button onclick="window.location.href='study.html';">Browse</button>
+
+
+          </div>
+          <div class="card">
+            <h2>Syllabus</h2>
+            <p>Students can access their syllabus</p>
+            <button onclick="window.open('https://syllabus.b-u.ac.in/syl_college/2023_24/changes/bsc_cs_2023_24.pdf', '_blank');">View</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="news">
+        <div class="card">
+          <h2>Department News</h2>
+          <ul>
+            <li>Faculty workshop scheduled next week.</li>
+            <li>Library updated with new reference books.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tab-content" id="articles">
+        <div class="card">
+  <h2>Latest Articles</h2>
+  <ul>
+    <li><strong>The Rise of Artificial Intelligence:</strong> Artificial Intelligence (AI) is rapidly advancing and transforming numerous industries from healthcare to finance. With capabilities like natural language processing, machine learning, and computer vision, AI enables automation, predictive analytics, and smarter decision-making, revolutionizing how businesses operate and deliver value.</li>
+    
+    <li><strong>Blockchain Beyond Cryptocurrency:</strong> While blockchain technology first gained fame through cryptocurrencies like Bitcoin, its applications extend far beyond digital currency. Blockchain offers decentralized, tamper-proof ledgers that enhance transparency, security, and efficiency in supply chains, voting systems, identity verification, and data sharing.</li>
+    
+    <li><strong>Cloud Computing Trends in 2025:</strong> Cloud computing continues to evolve with innovations such as edge computing, serverless architectures, and hybrid cloud solutions. These advancements provide businesses with scalable, cost-effective, and flexible computing resources, enabling faster development cycles and real-time data processing for enhanced customer experiences.</li>
+    
+    <li><strong>Cybersecurity Challenges in the Digital Age:</strong> As digital transformation accelerates, so do cybersecurity threats. From ransomware attacks to phishing and data breaches, protecting sensitive data requires advanced security protocols, continuous monitoring, AI-driven threat detection, and strong user education to safeguard organizations and individuals alike.</li>
+    
+    <li><strong>The Future of Quantum Computing:</strong> Quantum computing promises to solve complex problems that are currently intractable for classical computers. By leveraging quantum bits (qubits) and phenomena like superposition and entanglement, quantum computers can revolutionize fields like cryptography, material science, and optimization problems, opening doors to breakthroughs across industries.</li>
+    
+    <li><strong>5G and Its Impact on Connectivity:</strong> The rollout of 5G networks is set to dramatically enhance mobile connectivity by providing ultra-low latency, higher bandwidth, and massive device connectivity. This technology is a key enabler for the Internet of Things (IoT), autonomous vehicles, smart cities, and immersive augmented and virtual reality experiences.</li>
+  </ul>
+</div>
+
+    </section>
+  </main>
+  <footer class="footer">
+    © 2025 BSc CS Department, All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
