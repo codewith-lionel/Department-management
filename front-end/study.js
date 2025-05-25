@@ -9,6 +9,15 @@ document.querySelectorAll("nav ul li a").forEach((link) => {
     }
   });
 });
+/*slide bar */
+function closeSidebar() {
+  document.getElementById("sidebar").classList.add("closed");
+}
+
+function openSidebar() {
+  document.getElementById("sidebar").classList.remove("closed");
+}
+//syllabus
 const semesterSubjects = {
   1: [
     "Computing Fundamentals and C Programming",

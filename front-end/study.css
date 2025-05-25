@@ -11,56 +11,118 @@
   .html{
     scroll-behavior: smooth;
   }
-  /* Navigation Bar */
-  nav {
-    background-color: #2d2d86;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 15px 30px;
+  /* Header */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #2d2d86;
+
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+  z-index: 999;
+}
+
+
+  .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 16px 0; /* Controls navbar height */
+    height: 70px;     /* Optional: fixes height */
   }
-  
-  nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-  }
-  .home{
-    color:white ;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
 
-  }
-  .home:hover{
-    color:#f4c10f
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    margin-left: 25px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
-  }
-  
-  nav ul li a:hover {
-    color: #f4c10f;
-  }
+.logo {
+  font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 40px;
+
+}
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px; /* space between links */
+  flex: 1; /* take available space to push it right */
+}
+
+
+.nav a {
+  text-decoration: none;
+  color:white;
+  margin-left: 24px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #f4c10f;
+}
+ /*slide*/
+ .sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #34495e;
+  padding-top: 20px;
+  overflow-x: hidden;
+  transition: 0.3s;
+}
+
+.sidebar h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+.open-btn {
+  font-size: 20px;
+  padding: 10px 15px;
+  margin: 20px;
+  cursor: pointer;
+  margin-left: 0%;
+  margin-right: px;
+}
+
+.content {
+  margin-left: 260px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+/* Hide sidebar */
+.sidebar.closed {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sidebar.closed + .content {
+  margin-left: 0;
+}
   
   /* Hero Section */
   .hero {
@@ -155,19 +217,19 @@
   }
   
   /* Responsive */
-  @media (max-width: 600px) {
-    .hero h1 {
-      font-size: 2rem;
+
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+    .logo{
+      margin-left: 10px;
+      padding-left: 10px;
     }
   
-    nav ul {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    nav ul li {
-      margin-left: 0;
-      margin-bottom: 10px;
+    .open-btn {
+      display: block;
+      margin-left: 10px;
     }
   }
   /* Import funky font */
