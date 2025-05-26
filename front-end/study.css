@@ -40,6 +40,8 @@
 
 }
 .nav {
+  position: fixed;
+  margin-left: 30%;
   display: flex;
   justify-content: flex-end;
   gap: 24px; /* space between links */
@@ -231,6 +233,7 @@
       display: block;
       margin-left: 10px;
     }
+    
   }
   /* Import funky font */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
@@ -251,6 +254,7 @@
 .modal-content {
   background-color: #fff;
   margin: 10% auto;
+  margin-top: 30%;
   padding: 25px;
   border-radius: 16px;
   width: 90%;
