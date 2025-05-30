@@ -41,7 +41,7 @@
 }
 .nav {
   position: fixed;
-  margin-left: 30%;
+  margin-left: 68%;
   display: flex;
   justify-content: flex-end;
   gap: 24px; /* space between links */
@@ -233,6 +233,12 @@
       display: block;
       margin-left: 10px;
     }
+    .modal{
+
+      margin-top: 30%;
+    }
+    
+
     
   }
   /* Import funky font */
@@ -254,7 +260,7 @@
 .modal-content {
   background-color: #fff;
   margin: 10% auto;
-  margin-top: 30%;
+  margin-top: 13%;
   padding: 25px;
   border-radius: 16px;
   width: 90%;

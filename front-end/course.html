@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Stack Development Course</title>
+    <link rel="stylesheet" href="course.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-content">
+        <h1>Web Development Course</h1>
+        <p>Department of Computer Science</p>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <section class="section overview-section">
+        <h2 class="section-title">Course Overview</h2>
+        <p class="section-desc">
+          Learn to build modern web applications using HTML, CSS, JavaScript,
+          React, Node.js, and more. Below are hand-picked YouTube tutorials to
+          guide your learning journey.
+        </p>
+      </section>
+
+      <section class="section video-section">
+        <h3 class="section-title">Course Videos</h3>
+        <div class="card-grid">
+          <div
+            class="card video-card"
+            onclick="loadVideo('https://www.youtube.com/embed/3jkub2c0kLA?si=VCvZJ6-NMjmK2-RT', this)"
+          >
+            <strong>HTML Basics</strong>
+            <p>Start with website structure and styling</p>
+          </div>
+          <div
+            class="card video-card"
+            onclick="loadVideo('https://www.youtube.com/embed/l0BTo4VGVVs?si=ppFUPp1c7jSGGMX4', this)"
+          >
+            <strong>CSS Tutorial</strong>
+            <p>Learn CSS for beautiful web pages</p>
+          </div>
+          <div
+            class="card video-card"
+            onclick="loadVideo('https://www.youtube.com/embed/OcnBAwpMpdI?si=hgg6hF_sG__KKtKD', this)"
+          >
+            <strong>JavaScript Essentials</strong>
+            <p>Core concepts of JavaScript</p>
+          </div>
+          <div
+            class="card video-card"
+            onclick="loadVideo('https://www.youtube.com/embed/01bEb7R-F4s?si=X_z20p7MFgGfUpHx', this)"
+          >
+            <strong>React Tutorial</strong>
+            <p>Build interactive user interfaces</p>
+          </div>
+          <div
+            class="card video-card"
+            onclick="loadVideo('https://www.youtube.com/embed/-qfEOE4vtxE', this)"
+          >
+            <strong>Bootstrap</strong>
+            <p>Responsive design with Bootstrap framework</p>
+          </div>
+          <div
+            class="card video-card"
+            onclick="loadVideo('https://www.youtube.com/embed/SkoGKN8YknY?si=X3IPc4GDGTp0_hi0', this)"
+          >
+            <strong>Full Web Dev</strong>
+            <p>Complete web development course overview</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section player-section">
+        <h4 class="section-title">Selected Video</h4>
+        <div class="video-frame-wrapper">
+          <iframe
+            id="videoPlayer"
+            src="https://www.youtube.com/embed/3jkub2c0kLA?si=VCvZJ6-NMjmK2-RT"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      © 2025 Department of Computer Science | Full Stack Development Course
+    </footer>
+
+    <script src="course.js"></script>
+  </body>
+</html>

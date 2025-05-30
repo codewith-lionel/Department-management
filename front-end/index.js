@@ -44,11 +44,6 @@ navLinks.forEach(link => {
     targetContent.classList.add('active');
   });
 });
-
-
-
-
-
 const viewBtn = document.getElementById("view-timetable-btn");
 const timetableImg = document.getElementById("timetable-img");
 
