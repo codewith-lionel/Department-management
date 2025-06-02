@@ -38,49 +38,48 @@
 .header {
   position: sticky;
   top: 0;
-  background: linear-gradient(to right, #3f87a6, #ebf8e1, #f69d3c);
+  background: linear-gradient(to right, #3f51b5, #5a55ae, #ff9800);
   border-bottom: 1px solid #ddd;
   color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 999;
 }
 
-
-  .header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0; /* Controls navbar height */
-    height: 70px;     /* Optional: fixes height */
-  }
-  
-
-
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  height: 70px;
+}
 
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-}
-.nav {
-  position: fixed;
-  display: flex;
-  margin-left: 30%;
-  justify-content: flex-end;
-  gap: 24px; /* space between links */
-  flex: 1; /* take available space to push it right */
+  color: #fff;
 }
 
+/* Navigation */
+.nav {
+  position: fixed;
+  margin-left: 30%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  flex: 1;
+}
 
 .nav a {
   text-decoration: none;
-  color: #333;
+  color: #22223b;
   margin-left: 24px;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .nav a:hover {
-  color: #000000;
+  color: #ff9800;
+  transform: scale(1.05);
 }
   
   /* Hero Section */

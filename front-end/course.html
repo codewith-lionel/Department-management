@@ -1,32 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags and page title -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Full Stack Development Course</title>
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="course.css" />
   </head>
   <body>
-    <header class="main-header">
-      <div class="header-content">
-        <h1>Web Development Course</h1>
-        <p>Department of Computer Science</p>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="container">
+        <!-- Website Logo/Title -->
+        <h1 class="logo">CS Department</h1>
+        <!-- Main Navigation Bar -->
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="study.html">Study Hub</a>
+        </nav>
+        <!-- Sidebar for mobile navigation -->
+        <div id="sidebar" class="sidebar closed">
+          <span class="close-btn" onclick="closeSidebar()">×</span>
+          <h2></h2>
+          <a href="index.html">Home</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="study.html">Study Hub</a>
+          <a href="course.html">Course</a>
+        </div>
+        <!-- Sidebar open button (hamburger menu) -->
+        <div class="content">
+          <a class="open-btn" onclick="openSidebar()">☰ </a>
+        </div>
       </div>
     </header>
 
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Web Development Course</h1>
+      <p>Department of Computer Science</p>
+    </div>
+
+    <!-- Main Content -->
     <main class="main-container">
+      <!-- Course Overview Section -->
       <section class="section overview-section">
         <h2 class="section-title">Course Overview</h2>
         <p class="section-desc">
           Learn to build modern web applications using HTML, CSS, JavaScript,
-          React, Node.js, and more. Below are hand-picked YouTube tutorials to
-          guide your learning journey.
+          React, and more. Below are hand-picked YouTube tutorials to guide your
+          learning journey.
         </p>
       </section>
 
+      <!-- Course Videos Section -->
       <section class="section video-section">
         <h3 class="section-title">Course Videos</h3>
         <div class="card-grid">
+          <!-- Video Card: HTML Basics -->
           <div
             class="card video-card"
             onclick="loadVideo('https://www.youtube.com/embed/3jkub2c0kLA?si=VCvZJ6-NMjmK2-RT', this)"
@@ -34,6 +66,7 @@
             <strong>HTML Basics</strong>
             <p>Start with website structure and styling</p>
           </div>
+          <!-- Video Card: CSS Tutorial -->
           <div
             class="card video-card"
             onclick="loadVideo('https://www.youtube.com/embed/l0BTo4VGVVs?si=ppFUPp1c7jSGGMX4', this)"
@@ -41,6 +74,7 @@
             <strong>CSS Tutorial</strong>
             <p>Learn CSS for beautiful web pages</p>
           </div>
+          <!-- Video Card: JavaScript Essentials -->
           <div
             class="card video-card"
             onclick="loadVideo('https://www.youtube.com/embed/OcnBAwpMpdI?si=hgg6hF_sG__KKtKD', this)"
@@ -48,6 +82,7 @@
             <strong>JavaScript Essentials</strong>
             <p>Core concepts of JavaScript</p>
           </div>
+          <!-- Video Card: React Tutorial -->
           <div
             class="card video-card"
             onclick="loadVideo('https://www.youtube.com/embed/01bEb7R-F4s?si=X_z20p7MFgGfUpHx', this)"
@@ -55,6 +90,7 @@
             <strong>React Tutorial</strong>
             <p>Build interactive user interfaces</p>
           </div>
+          <!-- Video Card: Bootstrap -->
           <div
             class="card video-card"
             onclick="loadVideo('https://www.youtube.com/embed/-qfEOE4vtxE', this)"
@@ -62,6 +98,7 @@
             <strong>Bootstrap</strong>
             <p>Responsive design with Bootstrap framework</p>
           </div>
+          <!-- Video Card: Full Web Dev -->
           <div
             class="card video-card"
             onclick="loadVideo('https://www.youtube.com/embed/SkoGKN8YknY?si=X3IPc4GDGTp0_hi0', this)"
@@ -72,6 +109,7 @@
         </div>
       </section>
 
+      <!-- Video Player Section -->
       <section class="section player-section">
         <h4 class="section-title">Selected Video</h4>
         <div class="video-frame-wrapper">
@@ -85,10 +123,12 @@
       </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="main-footer">
       © 2025 Department of Computer Science | Full Stack Development Course
     </footer>
 
+    <!-- JavaScript for video switching and sidebar -->
     <script src="course.js"></script>
   </body>
 </html>
