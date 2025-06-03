@@ -1,43 +1,41 @@
 /* Reset & basics */
 * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  .html{
-    scroll-behavior: smooth;
-  }
-  /* Header */
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+.html {
+  scroll-behavior: smooth;
+}
+/* Header */
 .header {
   position: sticky;
   top: 0;
   background-color: #2d2d86;
 
   color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
   z-index: 999;
 }
 
-
-  .header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0; /* Controls navbar height */
-    height: 70px;     /* Optional: fixes height */
-  }
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0; /* Controls navbar height */
+  height: 70px; /* Optional: fixes height */
+}
 
 .logo {
   font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-left: 40px;
-
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-left: 40px;
 }
 .nav {
   position: fixed;
@@ -48,10 +46,9 @@
   flex: 1; /* take available space to push it right */
 }
 
-
 .nav a {
   text-decoration: none;
-  color:white;
+  color: white;
   margin-left: 24px;
   font-weight: 500;
   transition: color 0.3s;
@@ -60,17 +57,19 @@
 .nav a:hover {
   color: #f4c10f;
 }
- /*slide*/
- .sidebar {
-  height: 100vh;
-  width: 250px;
+/*slide*/
+.sidebar {
   position: fixed;
-  left: 0;
   top: 0;
-  background-color: #34495e;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #283046;
   padding-top: 20px;
+  overflow-y: visible;
   overflow-x: hidden;
   transition: 0.3s;
+  z-index: 1000;
 }
 
 .sidebar h2 {
@@ -96,7 +95,7 @@
   top: 10px;
   right: 15px;
   font-size: 28px;
-  color:#222;
+  color: #222;
   cursor: pointer;
 }
 
@@ -110,9 +109,14 @@
 }
 
 .content {
-  margin-left: 260px;
+  margin-left: 250px; /* matches sidebar width */
   padding: 20px;
   transition: margin-left 0.3s;
+}
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+  }
 }
 
 /* Hide sidebar */
@@ -125,132 +129,132 @@
 .sidebar.closed + .content {
   margin-left: 0;
 }
-  
-  /* Hero Section */
-  .hero {
-    background: linear-gradient(135deg, #2d2d86cc, #5a5acdcc), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 0 20px;
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #2d2d86cc, #5a5acdcc),
+    url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80")
+      center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary {
+  background-color: #f4c10f;
+  color: #2d2d86;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  box-shadow: 0 3px 7px rgba(244, 193, 15, 0.5);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #e0ac00;
+}
+
+/* Study Material Section */
+.materials {
+  max-width: 1000px;
+  margin: 50px auto 80px;
+  padding: 0 20px;
+}
+
+.materials h2 {
+  text-align: center;
+  color: #2d2d86;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+.material-list {
+  list-style: none;
+  padding: 0;
+}
+
+.material-list li {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px 25px;
+  transition: box-shadow 0.3s;
+}
+
+.material-list li:hover {
+  box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.material-list strong {
+  font-size: 1.2rem;
+  color: #222;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2d2d86;
+  color: white;
+  font-weight: 600;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
   }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  .logo {
+    margin-left: 10px;
+    padding-left: 10px;
   }
-  
-  .hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin-bottom: 25px;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-  }
-  
-  .btn-primary {
-    background-color: #f4c10f;
-    color: #2d2d86;
-    padding: 12px 30px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    box-shadow: 0 3px 7px rgba(244,193,15,0.5);
-    text-decoration: none;
-  }
-  
-  .btn-primary:hover {
-    background-color: #e0ac00;
-  }
-  
-  /* Study Material Section */
-  .materials {
-    max-width: 1000px;
-    margin: 50px auto 80px;
-    padding: 0 20px;
-  }
-  
-  .materials h2 {
-    text-align: center;
-    color: #2d2d86;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-  }
-  
-  .material-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .material-list li {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    padding: 20px 25px;
-    transition: box-shadow 0.3s;
-  }
-  
-  .material-list li:hover {
-    box-shadow: 4px 4px 18px rgba(0,0,0,0.15);
-  }
-  
-  .material-list strong {
-    font-size: 1.2rem;
-    color: #222;
+
+  .open-btn {
     display: block;
-    margin-bottom: 8px;
+    margin-left: 10px;
   }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #2d2d86;
-    color: white;
-    font-weight: 600;
+  .modal {
+    margin-top: 30%;
   }
-  
-  /* Responsive */
-
-  @media (max-width: 768px) {
-    .nav {
-      display: none;
-    }
-    .logo{
-      margin-left: 10px;
-      padding-left: 10px;
-    }
-  
-    .open-btn {
-      display: block;
-      margin-left: 10px;
-    }
-    .modal{
-
-      margin-top: 30%;
-    }
-    
-
-    
-  }
-  /* Import funky font */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+}
+/* Import funky font */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap");
 
 /* Modal background with blur */
 .modal {
   display: none;
   position: fixed;
   z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   backdrop-filter: blur(8px); /* <--- This adds the blur */
   background-color: rgba(0, 0, 0, 0.3); /* Slightly dark tint */
   animation: fadeIn 0.3s;
@@ -265,10 +269,10 @@
   border-radius: 16px;
   width: 90%;
   max-width: 420px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
   animation: slideDown 0.3s ease forwards;
   position: relative;
-  font-family: 'Fredoka', sans-serif;
+  font-family: "Fredoka", sans-serif;
   color: #2a2a2a;
 }
 
@@ -279,7 +283,7 @@
   right: 18px;
   font-size: 28px;
   font-weight: bold;
-  color:linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: linear-gradient(to right, #ff9a9e, #fad0c4);
   cursor: pointer;
   user-select: none;
   transition: transform 0.2s;
@@ -307,7 +311,7 @@
   background-color: #f1f1f1;
   padding: 10px 15px;
   border-radius: 10px;
-  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
 .modal-content li:hover {
@@ -317,8 +321,12 @@
 
 /* Animations */
 @keyframes fadeIn {
-  from { background-color: rgba(0, 0, 0, 0); }
-  to   { background-color: rgba(0, 0, 0, 0.3); }
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 @keyframes slideDown {
@@ -355,8 +363,8 @@
   background: linear-gradient(to right, #ff9a9e, #fad0c4);
   padding: 20px 30px;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  font-family: 'Fredoka', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: "Fredoka", sans-serif;
   font-size: 20px;
   color: #fff;
   cursor: pointer;

@@ -18,3 +18,13 @@ function loadVideo(url, el) {
   void player.offsetWidth; // trigger reflow
   player.classList.add("animate");
 }
+
+/*slide bar */
+function closeSidebar() {
+  document.getElementById("sidebar").classList.add("closed");
+}
+
+function openSidebar() {
+  document.getElementById("sidebar").classList.remove("closed");
+}
+

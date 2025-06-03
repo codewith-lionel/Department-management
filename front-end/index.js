@@ -15,33 +15,34 @@ tabButtons.forEach((button) => {
   });
 });
 
-
 // Smooth scroll for header nav links + activate corresponding tab
-const navLinks = document.querySelectorAll('.nav-link');
+const navLinks = document.querySelectorAll(".nav-link");
 
-navLinks.forEach(link => {
-  link.addEventListener('click', e => {
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
     e.preventDefault();
-    const targetId = link.getAttribute('href').substring(1);
+    const targetId = link.getAttribute("href").substring(1);
     const targetContent = document.getElementById(targetId);
 
     if (!targetContent) return;
 
     // Scroll smoothly to the tab content container (adjust offset if needed)
     window.scrollTo({
-      top: targetContent.offsetTop - 60,  // 60px for header height, adjust if needed
-      behavior: 'smooth'
+      top: targetContent.offsetTop - 60, // 60px for header height, adjust if needed
+      behavior: "smooth",
     });
 
     // Activate the correct tab button and tab content
-    tabButtons.forEach(btn => btn.classList.remove('active'));
-    tabContents.forEach(content => content.classList.remove('active'));
+    tabButtons.forEach((btn) => btn.classList.remove("active"));
+    tabContents.forEach((content) => content.classList.remove("active"));
 
     // Find tab button with matching data-tab
-    const activeBtn = Array.from(tabButtons).find(btn => btn.getAttribute('data-tab') === targetId);
-    if (activeBtn) activeBtn.classList.add('active');
+    const activeBtn = Array.from(tabButtons).find(
+      (btn) => btn.getAttribute("data-tab") === targetId
+    );
+    if (activeBtn) activeBtn.classList.add("active");
 
-    targetContent.classList.add('active');
+    targetContent.classList.add("active");
   });
 });
 const viewBtn = document.getElementById("view-timetable-btn");
@@ -90,10 +91,8 @@ window.addEventListener("click", function (e) {
 });
 // Smooth transition on navigation
 function navigateWithFade(url) {
-  document.body.classList.add('fade-out');
+  document.body.classList.add("fade-out");
   setTimeout(() => {
     window.location.href = url;
   }, 300); // match the CSS transition duration
 }
-
-
