@@ -42,7 +42,7 @@ body {
 /* Navigation */
 .nav {
   position: fixed;
-  margin-left: 30%;
+  margin-left: 60%;
   display: flex;
   justify-content: flex-end;
   gap: 24px;

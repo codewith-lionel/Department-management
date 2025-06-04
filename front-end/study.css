@@ -39,7 +39,7 @@ body {
 }
 .nav {
   position: fixed;
-  margin-left: 68%;
+  margin-left: 56%;
   display: flex;
   justify-content: flex-end;
   gap: 24px; /* space between links */
