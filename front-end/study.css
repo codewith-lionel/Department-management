@@ -5,8 +5,9 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  background: #181c24 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed;
+  background-size: cover;
+  color: #f4f4f4;
 }
 .html {
   scroll-behavior: smooth;
@@ -15,11 +16,10 @@ body {
 .header {
   position: sticky;
   top: 0;
-  background-color: #2d2d86;
-
+  background: linear-gradient(to right, #3f51b5, #5a55ae, #ff9800);
+  
   color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 999;
 }
 
@@ -27,15 +27,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0; /* Controls navbar height */
-  height: 70px; /* Optional: fixes height */
+  padding: 16px 0;
+  height: 70px;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-left: 40px;
+  margin-left: 2rem;;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
 }
 .nav {
   position: fixed;
@@ -132,10 +132,6 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #2d2d86cc, #5a5acdcc),
-    url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80")
-      center/cover no-repeat;
-  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -216,15 +212,60 @@ body {
 }
 
 /* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #2d2d86;
-  color: white;
-  font-weight: 600;
+.footer {
+  width: 100%;
+  background: #232946;
+  color: #fff;
+  padding: 24px 0 16px 0;
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.15);
+  margin-top: 40px;
+  height: 10%;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.insta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.footer-icon {
+  color: #fff;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.footer-icon:hover {
+  color: #ff9800;
+}
+
+.footer-link {
+  color: #f4c10f;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #fff;
 }
 
 /* Responsive */
+/* @media (min-width: 769px) {
+  .ft{
+    display: none;
+  }
+  
+} */
 
 @media (max-width: 768px) {
   .nav {
@@ -241,6 +282,9 @@ footer {
   }
   .modal {
     margin-top: 30%;
+  }
+  .btn-primary{
+    display: none;
   }
 }
 /* Import funky font */
@@ -358,6 +402,9 @@ footer {
   gap: 20px;
   margin-top: 30px;
 }
+.materials h2{
+  color: white;
+}
 
 .semester-card {
   background: linear-gradient(to right, #ff9a9e, #fad0c4);
@@ -378,3 +425,11 @@ footer {
   transform: scale(1.05);
   background: linear-gradient(to right, #a18cd1, #fbc2eb);
 }
+/* body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.7);
+  z-index: -1;
+  pointer-events: none; */
+
