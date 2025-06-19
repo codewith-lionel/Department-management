@@ -466,33 +466,6 @@ body {
     opacity: 1;
   }
 }
-
-/* --- Video Card Animation for Course Page --- */
-.video-card.selected {
-  box-shadow: 0 0 0 4px #ff9800, 0 2px 8px rgba(63, 81, 181, 0.13);
-  transform: scale(1.04);
-  transition: box-shadow 0.3s, transform 0.2s;
-}
-
-#videoPlayer.animate {
-  animation: popIn 0.5s;
-}
-
-@keyframes popIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.03);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 /* Ripple effect for buttons */
 .tab-button,
 .card button {
@@ -607,4 +580,5 @@ body {
     transform: translateX(200px) scale(0);
     opacity: 0;
   }
-}
+} 
+ 
