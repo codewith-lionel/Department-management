@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - CS Department</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="admin-header">
+      <div class="container">
+        <h1 class="logo">CS Admin Panel</h1>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <main class="dashboard container">
+      <h2 class="section-title">Welcome, Admin!</h2>
+      <div class="admin-grid">
+        <div class="admin-card">
+          <h3>Manage Faculty</h3>
+          <p>Add, update, or remove faculty details.</p>
+          <a href="manage-faculty.html" class="go-btn">Go</a>
+        </div>
+        <div class="admin-card">
+          <h3>Manage Events</h3>
+          <p>Create or update department events.</p>
+          <a href="manage-events.html" class="go-btn">Go</a>
+        </div>
+        <div class="admin-card">
+          <h3>Manage Articles</h3>
+          <p>Post and manage blog articles or news.</p>
+          <a href="manage-articles.html" class="go-btn">Go</a>
+        </div>
+        <div class="admin-card">
+          <h3>Upload Resources</h3>
+          <p>Upload study materials and syllabi.</p>
+          <a href="upload-resources.html" class="go-btn">Go</a>
+        </div>
+        <div class="admin-card">
+          <h3>View Feedback</h3>
+          <p>See messages and feedback from students.</p>
+          <a href="view-feedback.html" class="go-btn">Go</a>
+        </div>
+        <div class="admin-card">
+          <h3>Announcements</h3>
+          <p>Add or update homepage announcements.</p>
+          <a href="manage-announcements.html" class="go-btn">Go</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 CS Department Admin Panel</p>
+    </footer>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
