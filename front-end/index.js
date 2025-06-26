@@ -96,3 +96,55 @@ function navigateWithFade(url) {
     window.location.href = url;
   }, 300); // match the CSS transition duration
 }
+
+// Fetch and display faculty data
+document.addEventListener("DOMContentLoaded", async () => {
+  const facultyGrid = document.getElementById("facultyGrid");
+  const facultyPopups = document.getElementById("facultyPopups");
+
+  // Fetch faculty data from backend
+  const res = await fetch("http://localhost:5000/api/faculty");
+  const facultyList = await res.json();
+
+  facultyGrid.innerHTML = "";
+  facultyPopups.innerHTML = "";
+
+  facultyList.forEach((faculty, idx) => {
+    const cardId = `faculty${idx + 1}`;
+
+    // Faculty Card
+    facultyGrid.innerHTML += `
+      <div class="faculty-card" onclick="showFacultyDetails('${cardId}')">
+        <img src="${faculty.imageUrl || './faculty-image/default.jpg'}" alt="faculty" />
+        <div class="faculty-name">${faculty.name}</div>
+      </div>
+    `;
+
+    // Faculty Popup
+    facultyPopups.innerHTML += `
+      <div class="faculty-popup" id="${cardId}">
+        <div class="popup-content">
+          <img src="${faculty.imageUrl || './faculty-image/default.jpg'}" alt="faculty" />
+          <div class="faculty-details">
+            <h3>${faculty.name}</h3>
+            <p>🎓 ${faculty.designation}</p>
+            <p>📘 ${faculty.specialization}</p>
+            <p>📧 ${faculty.email}</p>
+          </div>
+          <span class="close-btn" onclick="hideFacultyDetails('${cardId}')">&times;</span>
+        </div>
+      </div>
+    `;
+  });
+});
+
+// Popup functions (add these if not present)
+function showFacultyDetails(id) {
+  document.getElementById(id).style.display = "block";
+}
+function hideFacultyDetails(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+const cors = require('cors');
+app.use(cors());
