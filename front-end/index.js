@@ -96,3 +96,56 @@ function navigateWithFade(url) {
     window.location.href = url;
   }, 300); // match the CSS transition duration
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const facultyGrid = document.getElementById("facultyGrid");
+  const facultyPopups = document.getElementById("facultyPopups");
+
+  try {
+    const res = await fetch("http://localhost:5000/api/faculty");
+    const facultyList = await res.json();
+
+    facultyGrid.innerHTML = "";
+    facultyPopups.innerHTML = "";
+
+    facultyList.forEach((faculty, idx) => {
+      const cardId = `faculty${idx + 1}`;
+
+      // Faculty Card
+      facultyGrid.innerHTML += `
+        <div class="faculty-card" onclick="showFacultyDetails('${cardId}')">
+          <img src="${faculty.imageUrl || '/faculty-image/default.jpg'}" alt="faculty" />
+          <div class="faculty-name">${faculty.name}</div>
+        </div>
+      `;
+
+      // Faculty Popup
+      facultyPopups.innerHTML += `
+        <div class="faculty-popup" id="${cardId}">
+          <div class="popup-content">
+            <img src="${faculty.imageUrl || '/faculty-image/default.jpg'}" alt="faculty" />
+            <div class="faculty-details">
+              <h3>${faculty.name}</h3>
+              <p>🎓 ${faculty.title || faculty.designation || ""}</p>
+              <p>📘 ${faculty.specialization || ""}</p>
+              <p>📧 ${faculty.email || ""}</p>
+            </div>
+            <span class="close-btn" onclick="hideFacultyDetails('${cardId}')">&times;</span>
+          </div>
+        </div>
+      `;
+    });
+  } catch (err) {
+    facultyGrid.innerHTML = "<p>Error loading faculty data.</p>";
+  }
+});
+
+// Popup functions
+function showFacultyDetails(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.classList.add("show");
+}
+function hideFacultyDetails(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.classList.remove("show");
+}

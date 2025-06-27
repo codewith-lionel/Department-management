@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Faculty - Admin</title>
+    <link rel="stylesheet" href="manage-faculty.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="admin-header">
+      <div class="container">
+        <h1 class="logo">Manage Faculty</h1>
+        <a href="admin.html" class="back-btn">← Back to Dashboard</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="form-section">
+        <h2>Add New Faculty</h2>
+        <form id="faculty-form">
+          <input type="text" id="name" placeholder="Faculty Name" required />
+          <input type="text" id="title" placeholder="Title" required />
+          <input type="text" id="specialization" placeholder="Specialization" required />
+          <input type="text" id="department" placeholder="Department" required />
+          <input type="file" id="image" accept="image/*" required />
+          <button type="submit">Add Faculty</button>
+        </form>
+      </section>
+
+      <section class="faculty-list-section">
+        <h2>Current Faculty</h2>
+        <div id="faculty-list" class="faculty-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 CS Department Admin Panel</p>
+    </footer>
+
+    <script src="manage-faculty.js"></script>
+  </body>
+</html>
