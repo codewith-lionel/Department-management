@@ -108,3 +108,17 @@ body {
   margin-top: 40px;
   font-size: 0.9rem;
 }
+
+.back-home-btn {
+  padding: 0.5em 1em;
+  background: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.back-home-btn:hover {
+  background: #0056b3;
+}

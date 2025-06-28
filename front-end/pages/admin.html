@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard - CS Department</title>
-    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="../styles/admin.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
@@ -17,6 +17,23 @@
         <button class="logout-btn" onclick="logout()">Logout</button>
       </div>
     </header>
+    <div
+      class="back-home-container"
+      style="text-align: right; margin: 1em 2em 0 0"
+    >
+      <a
+        href="../pages/index.html"
+        class="back-home-btn"
+        style="
+          padding: 0.5em 1em;
+          background: #007bff;
+          color: #fff;
+          border-radius: 4px;
+          text-decoration: none;
+        "
+        >← Back to Home</a
+      >
+    </div>
 
     <main class="dashboard container">
       <h2 class="section-title">Welcome, Admin!</h2>
@@ -37,9 +54,9 @@
           <a href="manage-articles.html" class="go-btn">Go</a>
         </div>
         <div class="admin-card">
-          <h3>Upload Resources</h3>
-          <p>Upload study materials and syllabi.</p>
-          <a href="upload-resources.html" class="go-btn">Go</a>
+          <h3>Upload Achievements</h3>
+          <p>Upload student achievements and awards.</p>
+          <a href="manage-achievements.html" class="go-btn">Go</a>
         </div>
         <div class="admin-card">
           <h3>View Feedback</h3>
@@ -58,6 +75,6 @@
       <p>© 2025 CS Department Admin Panel</p>
     </footer>
 
-    <script src="admin.js"></script>
+    <script src="../js/admin.js"></script>
   </body>
 </html>

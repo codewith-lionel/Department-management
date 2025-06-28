@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Achievements</title>
+    <link rel="stylesheet" href="../styles/manage-achievements.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>Manage Achievements</h1>
+        <a href="admin.html" class="back-btn">← Back to Dashboard</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <form id="achievement-form">
+        <label>Type</label>
+        <select id="type" required>
+          <option value="award">Award</option>
+          <option value="project">Project</option>
+          <option value="story">Success Story</option>
+        </select>
+
+        <label>Title</label>
+        <input type="text" id="title" required />
+
+        <label>Description</label>
+        <textarea id="description" required></textarea>
+
+        <label>Image (optional)</label>
+        <input type="file" id="image" accept="image/*" />
+
+        <button type="submit">Add Achievement</button>
+      </form>
+
+      <section id="achievement-list" class="cards"></section>
+    </main>
+
+    <script src="../js/manage-achievements.js"></script>
+  </body>
+</html>
