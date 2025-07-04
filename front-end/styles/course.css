@@ -386,7 +386,7 @@ body {
 }
 
 /* Side nav overlay */
-.side-nav-overlay {
+/* .side-nav-overlay {
   display: none;
   position: fixed;
   z-index: 1100;
@@ -395,7 +395,7 @@ body {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.3);
-}
+} */
 .side-nav {
   position: fixed;
   left: -260px;

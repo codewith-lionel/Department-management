@@ -3,239 +3,174 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BSc CS Department</title>
-    <link rel="stylesheet" href="../styles/index.css" />
+    <title>Welcome | BSc CS Department</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900"
     />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      .side-nav {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 240px;
+        height: 100%;
+        background-color: #ffffff;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        padding: 1.5rem;
+        transition: left 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .side-nav.open {
+        left: 0;
+      }
+
+      .side-nav a {
+        color: #111418;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .side-nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 900;
+        display: none;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        height: 3px;
+        width: 24px;
+        background: #111418;
+        border-radius: 3px;
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .desktop-nav {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Header Section -->
-    <header class="header">
-      <div class="container" style="position: relative">
-        <h1 class="logo">CS Department</h1>
-        <!-- Desktop Navigation -->
-        <nav class="nav">
-          <a href="#resources" class="nav-link">Student Resources</a>
-          <a href="achievements.html">Achievements</a>
-          <a href="study.html">Study Hub</a>
-          <a href="course.html">Course</a>
-        </nav>
-        <!-- Hamburger for mobile -->
-        <div
-          class="hamburger"
-          id="hamburgerBtn"
-          aria-label="Open menu"
-          tabindex="0"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </header>
-    <!-- Side Nav Overlay and Drawer -->
-     <div class="side-nav-overlay" id="sideNavOverlay"></div> 
-    <nav class="side-nav" id="sideNav">
-      <span class="close-btn" id="sideNavCloseBtn">&times;</span>
-      <a href="#resources" class="nav-link">Student Resources</a>
+    <!-- Sidebar -->
+    <div id="sideNav" class="side-nav">
+      <a href="index.html">Home</a>
       <a href="achievements.html">Achievements</a>
-      <a href="study.html">Study Hub</a>
-      <a href="course.html">Course</a>
-      <a href="adminLogin.html">Admin Panel</a>
-    </nav>
+      <a href="course.html">Courses</a>
+      <a href="adminLogin.html" target="_blank">Admin Login</a>
+    </div>
+    <div id="sideNavOverlay" class="side-nav-overlay"></div>
 
-
-    <!-- Faculty Title -->
-    <h1 class="faculty-title">OUR FACULTIES</h1>
-
-    <!-- Main content container -->
-    <main class="container">
-      <!-- Faculty Grid Section -->
-      <section class="faculty-grid" id="facultyGrid"></section>
-      <div id="facultyPopups"></div>
-
-      <!-- Faculty Description Section -->
-      <section
-        class="faculty-description"
-        style="
-          max-width: 900px;
-          margin: 40px auto;
-          text-align: center;
-          font-size: 1.1rem;
-          color: #444;
-          line-height: 1.6;
-        "
-      >
-        <p>
-          Our passionate faculty members are the heart of our department,
-          bringing a wealth of knowledge and experience to ignite curiosity and
-          inspire innovation. They go beyond traditional teaching — nurturing
-          creativity, critical thinking, and a lifelong love of learning.
-          Committed to empowering every student, our educators foster a
-          supportive environment where ideas flourish and futures are shaped.
-          Together, we build a community dedicated to excellence, growth, and
-          success.
-        </p>
-      </section>
-
-      <!-- Tabs Section -->
-      <section class="tabs-section">
-        <!-- Tabs Navigation -->
-        <div class="tabs-nav">
-          <button class="tab-button active" data-tab="resources">
-            Student Resources
-          </button>
-          <button class="tab-button" data-tab="news">Events</button>
-          <button class="tab-button" data-tab="articles">Articles</button>
-        </div>
-
-        <!-- Tab Content: Student Resources -->
-        <div class="tab-content active" id="resources">
-          <div class="cards-grid">
-            <!-- Time Table Card -->
-            <div class="card">
-              <h2>Time Table</h2>
-              <p>Check the current semester timetable.</p>
-              <button id="view-timetable-btn">View</button>
-              <!-- Hidden image that shows after clicking -->
-              <img
-                id="timetable-img"
-                src="./faculty-image/archana.jpg"
-                alt="Time Table"
-                style="display: none; margin-top: 10px; max-width: 100%"
-              />
+    <div class="relative flex size-full min-h-screen flex-col bg-white overflow-x-hidden" style="font-family: Inter, 'Noto Sans', sans-serif">
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between border-b border-[#f0f2f5] px-6 py-4">
+          <div class="flex items-center gap-4 text-[#111418]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path
+                  d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
             </div>
-            <!-- Study Materials Card -->
-            <div class="card">
-              <h2>Study Materials</h2>
-              <p>Download all relevant materials here.</p>
-              <button onclick="window.location.href='study.html'">
-                Browse
-              </button>
+            <h2 class="text-[#111418] text-lg font-bold">BSc CS</h2>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="desktop-nav flex-1 justify-end gap-8 hidden md:flex">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111418] text-sm font-medium" href="index.html">Home</a>
+              <a class="text-[#111418] text-sm font-medium" href="achievements.html">Achievements</a>
+              <a class="text-[#111418] text-sm font-medium" href="course.html">Courses</a>
             </div>
-            <!-- Syllabus Card -->
-            <div class="card">
-              <h2>Syllabus</h2>
-              <p>Students can access their syllabus</p>
-              <button
-                onclick="window.open('https://syllabus.b-u.ac.in/syl_college/2023_24/changes/bsc_cs_2023_24.pdf', '_blank');"
-              >
-                View
-              </button>
+            <a href="adminLogin.html" target="_blank" class="px-4 py-2 bg-[#0c7ff2] text-white text-sm font-bold rounded-lg">
+              Admin Login
+            </a>
+          </nav>
+
+          <!-- Hamburger Menu -->
+          <div class="hamburger md:hidden" onclick="openSideNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </header>
+
+        <div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-start justify-end px-4 pb-10 @[480px]:px-10"
+                  style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
+                    url('https://lh3.googleusercontent.com/aida-public/AB6AXuBECamucLL5G8PtpWFu_sZR-ylMVlRZINS0uc7p468kec6cwSlQJu7KVRIFNO8A2OkW63MujiuagbgosO-SxRp-Clz_SOftxyxl4MqlKEJ-4Tf_L5LqIEfyzhGtlrrw_sPOE3VzAu9rFy59k9uryJwye4PZU_iIM9WVP4RzBqtw_sl64Cu6dPfqDlZ-Ww4tSjc-3ItTuCPG6Awa42EbooWnr7C7JxATKfD0DutFFzSZNKtm2Beww2gmSjX8PfFQ1HHtn9mtZwM_14I');"
+                >
+                  <div class="flex flex-col gap-2 text-left">
+                    <h1 class="text-white text-4xl font-black @[480px]:text-5xl">Welcome to the Department of Computer Science</h1>
+                    <h2 class="text-white text-sm @[480px]:text-base font-normal">Inspiring the next generation of innovators and leaders in technology.</h2>
+                  </div>
+                  <a
+                    href="index.html"
+                    class="mt-4 px-4 py-2 bg-[#0c7ff2] text-white text-sm font-bold rounded-lg"
+                    target="_blank"
+                  >
+                    Get Started
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-        <!-- Tab Content: News -->
-        <div class="tab-content" id="news">
-          <div class="card">
-            <h2>Department Events</h2>
-            <ul>
-              <li>Faculty workshop scheduled next week.</li>
-              <li>Library updated with new reference books.</li>
-            </ul>
-            <h2>Upcoming Events</h2>
-            <ul>
-              <li><a href="">event link</a></li>
-              <li></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Tab Content: Articles -->
-        <div class="tab-content" id="articles">
-          <div class="card">
-            <h2>Latest Articles</h2>
-            <ul>
-              <li>
-                <strong>The Rise of Artificial Intelligence:</strong> Artificial
-                Intelligence (AI) is rapidly advancing and transforming numerous
-                industries from healthcare to finance. With capabilities like
-                natural language processing, machine learning, and computer
-                vision, AI enables automation, predictive analytics, and smarter
-                decision-making, revolutionizing how businesses operate and
-                deliver value.
-              </li>
-              <li>
-                <strong>Blockchain Beyond Cryptocurrency:</strong> While
-                blockchain technology first gained fame through cryptocurrencies
-                like Bitcoin, its applications extend far beyond digital
-                currency. Blockchain offers decentralized, tamper-proof ledgers
-                that enhance transparency, security, and efficiency in supply
-                chains, voting systems, identity verification, and data sharing.
-              </li>
-              <li>
-                <strong>Cloud Computing Trends in 2025:</strong> Cloud computing
-                continues to evolve with innovations such as edge computing,
-                serverless architectures, and hybrid cloud solutions. These
-                advancements provide businesses with scalable, cost-effective,
-                and flexible computing resources, enabling faster development
-                cycles and real-time data processing for enhanced customer
-                experiences.
-              </li>
-              <li>
-                <strong>Cybersecurity Challenges in the Digital Age:</strong> As
-                digital transformation accelerates, so do cybersecurity threats.
-                From ransomware attacks to phishing and data breaches,
-                protecting sensitive data requires advanced security protocols,
-                continuous monitoring, AI-driven threat detection, and strong
-                user education to safeguard organizations and individuals alike.
-              </li>
-              <li>
-                <strong>The Future of Quantum Computing:</strong> Quantum
-                computing promises to solve complex problems that are currently
-                intractable for classical computers. By leveraging quantum bits
-                (qubits) and phenomena like superposition and entanglement,
-                quantum computers can revolutionize fields like cryptography,
-                material science, and optimization problems, opening doors to
-                breakthroughs across industries.
-              </li>
-              <li>
-                <strong>5G and Its Impact on Connectivity:</strong> The rollout
-                of 5G networks is set to dramatically enhance mobile
-                connectivity by providing ultra-low latency, higher bandwidth,
-                and massive device connectivity. This technology is a key
-                enabler for the Internet of Things (IoT), autonomous vehicles,
-                smart cities, and immersive augmented and virtual reality
-                experiences.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer
-      class="footer bg-white border-t border-[#f0f2f5] flex flex-col items-center py-8 mt-10"
-    >
-      <div class="footer-content text-center">
-        <p class="text-[#47569e] text-base font-normal leading-normal mb-3">
-          © 2025 BSc CS Department — All Rights Reserved.
-        </p>
-        <div class="flex justify-center gap-4">
-          <a
-            href="https://www.instagram.com/_techcorner?utm_source=ig_web_button_share_sheet&igsh=b3B4ZmFjc3czZ3oz"
-            target="_blank"
-            class="footer-instagram"
-            aria-label="Instagram"
-          >
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 448 512"
-              fill="currentColor"
-              style="vertical-align: middle"
-            >
-              <path
-                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S388.6 9.7 353.3 8C317.9 6.3 299.6 0 224 0S130.1 6.3 94.7 8C59.4 9.7 28 17.9 1.7 44.2S9.7 123.4 8 158.7C6.3 194.1 0 212.4 0 288s6.3 93.9 8 129.3c1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2C130.1 505.7 148.4 512 224 512s93.9-6.3 129.3-8c35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 8-53.6 8-129.3s-6.3-93.9-8-129.3zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5C121.1 9 190.9 11.6 224 11.6s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z"
-              />
-            </svg>
-          </a>
         </div>
       </div>
-    </footer>
+    </div>
 
-    <script src="../js/index.js"></script>
+    <!-- JS for SideNav -->
+    <script>
+      const sideNav = document.getElementById("sideNav");
+      const sideNavOverlay = document.getElementById("sideNavOverlay");
+
+      function openSideNav() {
+        sideNav.classList.add("open");
+        sideNavOverlay.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeSideNav() {
+        sideNav.classList.remove("open");
+        sideNavOverlay.style.display = "none";
+        document.body.style.overflow = "";
+      }
+
+      sideNavOverlay.addEventListener("click", closeSideNav);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeSideNav();
+      });
+    </script>
   </body>
 </html>

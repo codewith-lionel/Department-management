@@ -53,3 +53,4 @@ sideNavCloseBtn.addEventListener("click", closeSideNav);
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeSideNav();
 });
+
