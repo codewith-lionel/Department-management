@@ -28,3 +28,28 @@ function openSidebar() {
   document.getElementById("sidebar").classList.remove("closed");
 }
 
+// Hamburger and Side Nav functionality
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const sideNav = document.getElementById("sideNav");
+const sideNavOverlay = document.getElementById("sideNavOverlay");
+const sideNavCloseBtn = document.getElementById("sideNavCloseBtn");
+
+function openSideNav() {
+  sideNav.classList.add("open");
+  sideNavOverlay.style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+function closeSideNav() {
+  sideNav.classList.remove("open");
+  sideNavOverlay.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+hamburgerBtn.addEventListener("click", openSideNav);
+sideNavOverlay.addEventListener("click", closeSideNav);
+sideNavCloseBtn.addEventListener("click", closeSideNav);
+
+// Optional: Close on ESC key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeSideNav();
+});

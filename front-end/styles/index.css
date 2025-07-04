@@ -1,3 +1,20 @@
+.modal-bg {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+}
+.modal {
+  animation: popIn 0.25s cubic-bezier(0.4, 2, 0.6, 1) both;
+}
+@keyframes popIn {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 /* Modern Indigo-Orange Color Palette for the Whole Page */
 
 /* Reset */
@@ -11,11 +28,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #fff;
-  background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/diagonal_striped_brick.png");
+  /* background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/diagonal_striped_brick.png"); */
   background-repeat: repeat;
   color: #22223b; /* Deep blue-gray text */
   min-height: 100vh;
   margin: 0;
+  background-color: var(--cs-bg-light);
 }
 
 /* Fade effect */
@@ -33,7 +51,7 @@ body {
 .header {
   position: sticky;
   top: 0;
-  background: linear-gradient(to right, #3f51b5, #5a55ae, #ff9800);
+  background: #f0f2f5;
   border-bottom: 1px solid #ddd;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -53,7 +71,7 @@ body {
     sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #fff;
+  color: black;
   letter-spacing: 1px;
 }
 
@@ -147,11 +165,12 @@ body {
 
 /* Tabs Section */
 .tabs-section {
-  background: #fff;
+  background: #4c4c4c;
   padding: 40px 20px;
   border-radius: 15px;
   margin-bottom: 40px;
   box-shadow: 0 4px 10px rgba(63, 81, 181, 0.08);
+  background: var(--cs-bg-light);
 }
 
 .tabs-nav {
@@ -200,6 +219,7 @@ body {
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(63, 81, 181, 0.05);
+  border: 1px solid var(--cs-bg-light);
   transition: box-shadow 0.3s;
 }
 
@@ -255,7 +275,8 @@ body {
   font-size: 0.9rem;
   color: #fff;
   border-top: 1px solid #ddd;
-  background: #3f51b5;
+  background: var(--cs-bg-light);
+  color: #3f51b5;
 }
 
 .footer-content {
@@ -580,5 +601,131 @@ body {
     transform: translateX(200px) scale(0);
     opacity: 0;
   }
-} 
- 
+}
+
+/* Add new color variable and usage for #f0f2f5 */
+:root {
+  --cs-bg-light: #f0f2f5;
+}
+
+/* Example usage for backgrounds and borders */
+body {
+  /* ...existing code... */
+  background-color: var(--cs-bg-light);
+  /* ...existing code... */
+}
+
+.tabs-section {
+  background: var(--cs-bg-light);
+  /* ...existing code... */
+}
+
+.card,
+.faculty-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(63, 81, 181, 0.05);
+  border: 1px solid var(--cs-bg-light);
+  transition: box-shadow 0.3s;
+}
+
+/* Footer background update */
+.footer,
+.main-footer {
+  background: var(--cs-bg-light);
+  color: #3f51b5;
+}
+
+/* Optional: Section backgrounds */
+.section,
+.overview-section,
+.player-section {
+  background: var(--cs-bg-light);
+}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1101;
+}
+.hamburger span {
+  height: 4px;
+  width: 28px;
+  background: #111418;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+  display: block;
+}
+@media (max-width: 900px) {
+  .nav {
+    display: none !important;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+/* Side nav overlay */
+.side-nav-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1100;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+.side-nav {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 240px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 16px rgba(0, 0, 0, 0.08);
+  z-index: 1101;
+  padding: 32px 0 0 0;
+  transition: left 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.side-nav.open {
+  left: 0;
+}
+.side-nav .close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 2rem;
+  color: #111418;
+  cursor: pointer;
+}
+.side-nav a {
+  color: #111418;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 16px 32px;
+  border-bottom: 1px solid #f0f2f5;
+  transition: background 0.2s;
+}
+.side-nav a:hover,
+.side-nav a.active {
+  background: #f0f2f5;
+  color: #0c7ff2;
+}
+@media (max-width: 900px) {
+  .side-nav-overlay {
+    display: block;
+  }
+  .side-nav {
+    display: flex;
+  }
+}

@@ -2,14 +2,23 @@
 * {
   box-sizing: border-box;
 }
+:root {
+  --cs-bg-light: #f0f2f5;
+  --cs-bg-dark: #21284a;
+}
+
+/* Example usage for backgrounds and borders */
+body {
+  /* ...existing code... */
+  background-color: var(--cs-bg-light);
+  /* ...existing code... */
+}
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #181c24
-    url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80")
-    no-repeat center center fixed;
+
   background-size: cover;
-  color: #f4f4f4;
+  color: black;
 }
 .html {
   scroll-behavior: smooth;
@@ -215,7 +224,93 @@ body {
   margin-bottom: 8px;
 }
 
-/* Footer */
+/* Navbar styles */
+.main-navbar {
+  background: #fff;
+  border-bottom: 1px solid #f0f2f5;
+  padding: 0;
+  margin-bottom: 24px;
+}
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.navbar-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #111418;
+  letter-spacing: -0.5px;
+}
+.navbar-links {
+  display: flex;
+  gap: 32px;
+}
+.navbar-links a {
+  color: #111418;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+.navbar-links a.active,
+.navbar-links a:hover {
+  color: #0c7ff2;
+  border-bottom: 2px solid #0c7ff2;
+}
+.navbar-admin-btn {
+  background: #0c7ff2;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 8px 18px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s;
+  margin-left: 24px;
+  white-space: nowrap;
+}
+.navbar-admin-btn:hover {
+  background: #095bb5;
+}
+
+/* Footer styles */
+.main-footer {
+  background: #fff;
+  border-top: 1px solid #f0f2f5;
+  padding: 32px 0 16px 0;
+  text-align: center;
+  margin-top: 48px;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-content p {
+  color: #47569e;
+  font-size: 1rem;
+  margin: 0;
+}
+.footer-instagram {
+  color: #47569e;
+  display: inline-flex;
+  transition: color 0.2s;
+  margin-left: 8px;
+}
+
 .footer {
   width: 100%;
   background: #232946;
@@ -430,10 +525,59 @@ body {
   transform: scale(1.05);
   background: linear-gradient(to right, #a18cd1, #fbc2eb);
 }
-/* body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(255,255,255,0.7);
-  z-index: -1;
-  pointer-events: none; */
+
+/* Change all text to black */
+body,
+html,
+.main-navbar,
+.navbar-title,
+.navbar-links a,
+.navbar-links a.active,
+.navbar-links a:hover,
+.navbar-admin-btn,
+.hero,
+.hero h1,
+.hero p,
+.materials h2,
+.material-list li,
+.semester-card,
+.materials,
+.material-list strong,
+.main-footer,
+.footer-content,
+.footer-content p,
+.footer-instagram,
+.footer-link,
+.modal-content,
+.modal-content h3,
+.modal-content li {
+  color: #000 !important;
+}
+
+/* Remove text-shadow for clarity */
+.hero h1,
+.hero p {
+  text-shadow: none !important;
+}
+
+/* For cards and buttons with white text on colored backgrounds */
+.semester-card,
+.semester-card:hover,
+.btn-primary,
+.navbar-admin-btn,
+.footer-instagram,
+.footer-icon {
+  color: #000 !important;
+}
+
+/* For links on hover */
+.navbar-links a.active,
+.navbar-links a:hover,
+.footer-link:hover {
+  color: #000 !important;
+}
+
+/* For modal close button */
+.close-btn {
+  color: #000 !important;
+}

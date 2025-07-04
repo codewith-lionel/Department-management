@@ -16,31 +16,29 @@
       </div>
     </div>
 
-    <!-- Header Section -->
-    <header class="header">
-      <div class="container">
-        <!-- Website Logo/Title -->
-        <h1 class="logo">Study Material Hub</h1>
-        <!-- Main Navigation Bar -->
-        <nav class="nav">
+    <!-- Navbar (custom CSS, not Tailwind) -->
+    <header class="main-navbar">
+      <div class="navbar-container">
+        <div class="navbar-logo">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+            <g>
+              <path
+                d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
+                fill="#3f51b5"
+              ></path>
+            </g>
+          </svg>
+          <span class="navbar-title">BSc CS</span>
+        </div>
+        <nav class="navbar-links">
           <a href="index.html">Home</a>
           <a href="achievements.html">Achievements</a>
+          <a href="study.html" class="active">Study Hub</a>
           <a href="course.html">Course</a>
         </nav>
-
-        <!-- Sidebar for mobile navigation -->
-        <div id="sidebar" class="sidebar closed">
-          <span class="close-btn" onclick="closeSidebar()">×</span>
-          <h2></h2>
-          <a href="index.html">Home</a>
-          <a href="achievements.html">Achievements</a>
-          <a href="course.html">Course</a>
-        </div>
-
-        <!-- Sidebar open button (hamburger menu) -->
-        <div class="content">
-          <a class="open-btn" onclick="openSidebar()">☰ </a>
-        </div>
+        <a href="adminLogin.html" target="_blank" class="navbar-admin-btn">
+          Admin Login
+        </a>
       </div>
     </header>
 
@@ -66,8 +64,11 @@
         <div class="semester-card" onclick="showSubjects(6)">Semester 6</div>
       </div>
     </section>
-  
-      <div class="instagram-logo">
+
+    <!-- Footer (custom CSS, not Tailwind) -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <p>© 2024 TechU. All rights reserved.</p>
         <a
           href="https://www.instagram.com/_techcorner?utm_source=ig_web_button_share_sheet&igsh=b3B4ZmFjc3czZ3oz"
           target="_blank"
@@ -85,9 +86,9 @@
               d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S388.6 9.7 353.3 8C317.9 6.3 299.6 0 224 0S130.1 6.3 94.7 8C59.4 9.7 28 17.9 1.7 44.2S9.7 123.4 8 158.7C6.3 194.1 0 212.4 0 288s6.3 93.9 8 129.3c1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2C130.1 505.7 148.4 512 224 512s93.9-6.3 129.3-8c35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 8-53.6 8-129.3s-6.3-93.9-8-129.3zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5C121.1 9 190.9 11.6 224 11.6s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z"
             />
           </svg>
-        </a></div>
- 
-
+        </a>
+      </div>
+    </footer>
 
     <!-- JavaScript for modal and sidebar functionality -->
     <script src="../js/study.js"></script>

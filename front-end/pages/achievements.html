@@ -13,40 +13,40 @@
     />
   </head>
   <body>
-    <!-- Header Section -->
+    <!-- Navbar (consistent with other pages, no Tailwind) -->
     <header class="header">
-      <div class="container">
-        <!-- Website Logo/Title -->
+      <div class="container" style="position: relative">
         <h1 class="logo">CS Department</h1>
-        <!-- Main Navigation Bar -->
+        <!-- Desktop Navigation -->
         <nav class="nav">
-          <a href="index.html">Home</a>
-          <a href="#awards">Awards</a>
-          <a href="#projects">Projects</a>
-          <a href="#success">Success Stories</a>
-          <a href="study.html">Study Hub</a>
-          <a href="course.html">Course</a>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="achievements.html" class="nav-link">Achievements</a>
+          <a href="study.html" class="nav-link">Study Hub</a>
+          <a href="course.html" class="nav-link">Course</a>
         </nav>
-
-        <!-- Sidebar for mobile navigation -->
-        <div id="sidebar" class="sidebar closed">
-          <span class="close-btn" onclick="closeSidebar()">×</span>
-          <h2></h2>
-          <div class="sid"></div>
-          <a href="index.html">Home</a>
-          <a href="#awards" class="nav-link">Awards</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#" class="">Success Stories</a>
-          <a href="study.html">Study Hub</a>
-          <a href="course.html">Course</a>
-        </div>
-
-        <!-- Sidebar open button (hamburger menu) -->
-        <div class="content">
-          <a class="open-btn" onclick="openSidebar()">☰ </a>
+        <!-- Hamburger for mobile -->
+        <div
+          class="hamburger"
+          id="hamburgerBtn"
+          aria-label="Open menu"
+          tabindex="0"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
     </header>
+    <!-- Side Nav Overlay and Drawer -->
+    <div class="side-nav-overlay" id="sideNavOverlay"></div>
+    <nav class="side-nav" id="sideNav">
+      <span class="close-btn" id="sideNavCloseBtn">&times;</span>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="study.html" class="nav-link">Study Hub</a>
+      <a href="course.html" class="nav-link">Course</a>
+      <a href="adminLogin.html" class="nav-link">Admin Panel</a>
+    </nav>
 
     <!-- Hero Section: Department Achievements Overview -->
     <section class="hero">
@@ -77,9 +77,29 @@
       <div class="cards" id="success-list"></div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-      © 2025 BSc CS Department — All Rights Reserved.
+    <!-- Footer (consistent with other pages, no Tailwind) -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <p>© 2025 BSc CS Department — All Rights Reserved.</p>
+        <a
+          href="https://www.instagram.com/_techcorner?utm_source=ig_web_button_share_sheet&igsh=b3B4ZmFjc3czZ3oz"
+          target="_blank"
+          class="footer-instagram"
+          aria-label="Instagram"
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 448 512"
+            fill="currentColor"
+            style="vertical-align: middle"
+          >
+            <path
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S388.6 9.7 353.3 8C317.9 6.3 299.6 0 224 0S130.1 6.3 94.7 8C59.4 9.7 28 17.9 1.7 44.2S9.7 123.4 8 158.7C6.3 194.1 0 212.4 0 288s6.3 93.9 8 129.3c1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2C130.1 505.7 148.4 512 224 512s93.9-6.3 129.3-8c35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 8-53.6 8-129.3s-6.3-93.9-8-129.3zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5C121.1 9 190.9 11.6 224 11.6s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z"
+            />
+          </svg>
+        </a>
+      </div>
     </footer>
 
     <!-- JavaScript for sidebar/menu functionality -->

@@ -114,7 +114,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Faculty Card
       facultyGrid.innerHTML += `
         <div class="faculty-card" onclick="showFacultyDetails('${cardId}')">
-          <img src="${faculty.imageUrl || '/faculty-image/default.jpg'}" alt="faculty" />
+          <img src="${
+            faculty.imageUrl || "/faculty-image/default.jpg"
+          }" alt="faculty" />
           <div class="faculty-name">${faculty.name}</div>
         </div>
       `;
@@ -123,7 +125,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       facultyPopups.innerHTML += `
         <div class="faculty-popup" id="${cardId}">
           <div class="popup-content">
-            <img src="${faculty.imageUrl || '/faculty-image/default.jpg'}" alt="faculty" />
+            <img src="${
+              faculty.imageUrl || "/faculty-image/default.jpg"
+            }" alt="faculty" />
             <div class="faculty-details">
               <h3>${faculty.name}</h3>
               <p>🎓 ${faculty.title || faculty.designation || ""}</p>
@@ -149,3 +153,39 @@ function hideFacultyDetails(id) {
   const modal = document.getElementById(id);
   if (modal) modal.classList.remove("show");
 }
+
+// Hamburger and Side Nav functionality
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const sideNav = document.getElementById("sidebar");
+const sideNavOverlay = document.createElement("div");
+sideNavOverlay.className = "side-nav-overlay";
+document.body.appendChild(sideNavOverlay);
+
+function openSidebar() {
+  sideNav.classList.remove("closed");
+  sideNav.classList.add("open");
+  sideNavOverlay.style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+function closeSidebar() {
+  sideNav.classList.remove("open");
+  sideNav.classList.add("closed");
+  sideNavOverlay.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+// Hamburger open
+const openBtn = document.querySelector(".open-btn");
+if (openBtn) openBtn.addEventListener("click", openSidebar);
+
+// Overlay click closes sidebar
+sideNavOverlay.addEventListener("click", closeSidebar);
+
+// Close button in sidebar
+const closeBtn = sideNav.querySelector(".close-btn");
+if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+
+// Optional: Close on ESC key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeSidebar();
+});

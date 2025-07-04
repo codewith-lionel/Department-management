@@ -327,3 +327,39 @@ function showUnits(subject) {
     ul.appendChild(li);
   });
 }
+
+// Hamburger and Side Nav functionality
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const sideNav = document.getElementById("sidebar");
+const sideNavOverlay = document.createElement("div");
+sideNavOverlay.className = "side-nav-overlay";
+document.body.appendChild(sideNavOverlay);
+
+function openSidebar() {
+  sideNav.classList.remove("closed");
+  sideNav.classList.add("open");
+  sideNavOverlay.style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+function closeSidebar() {
+  sideNav.classList.remove("open");
+  sideNav.classList.add("closed");
+  sideNavOverlay.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+// Hamburger open
+const openBtn = document.querySelector(".open-btn");
+if (openBtn) openBtn.addEventListener("click", openSidebar);
+
+// Overlay click closes sidebar
+sideNavOverlay.addEventListener("click", closeSidebar);
+
+// Close button in sidebar
+const closeBtn = sideNav.querySelector(".close-btn");
+if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+
+// Optional: Close on ESC key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeSidebar();
+});
