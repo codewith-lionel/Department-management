@@ -51,19 +51,38 @@ body {
 .header {
   position: sticky;
   top: 0;
-  background: #f0f2f5;
-  border-bottom: 1px solid #ddd;
+  background: #fff;
+  border-bottom: 1px solid #f0f2f5;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 999;
+  margin-bottom: 24px;
 }
 
 .header .container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
+  padding: 12px 24px;
   height: 70px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Updated navbar logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #000000; /* Changed to black */
+  letter-spacing: -0.5px;
 }
 
 .logo {
@@ -71,31 +90,152 @@ body {
     sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
-  color: black;
+  color: #000000; /* Changed to black */
   letter-spacing: 1px;
 }
 
-/* Navigation */
-.nav {
+/* Faculty Animation */
+.faculty-popup {
   position: fixed;
-  margin-left: 30%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease-in-out;
+}
+
+.faculty-popup.show {
   display: flex;
-  justify-content: flex-end;
-  gap: 24px;
-  flex: 1;
 }
 
-.nav a {
-  text-decoration: none;
+.popup-content {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  max-width: 90%;
+  transform: perspective(1000px) rotateY(0deg) scale(0.5);
+  animation: zoomIn3D 0.5s forwards;
+  position: relative;
+}
+
+.popup-content img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  box-shadow: none; /* Remove shadow */
+  border: none; /* Remove border */
+  transition: transform 0.3s;
+}
+
+.popup-content img:hover {
+  transform: scale(1.05) rotate(3deg);
+}
+
+.faculty-details {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
   color: #22223b;
-  margin-left: 24px;
-  font-weight: 500;
-  transition: color 0.3s, transform 0.3s;
 }
 
-.nav a:hover {
-  color: #ff9800;
-  transform: scale(1.05);
+.faculty-details h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 28px;
+  color: #555;
+  cursor: pointer;
+}
+
+@keyframes zoomIn3D {
+  0% {
+    transform: perspective(1000px) rotateY(-60deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Updated Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: auto;
+}
+
+.nav-link {
+  color: #111418;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #0c7ff2;
+  border-bottom: 2px solid #0c7ff2;
+}
+
+/* Remove admin button styles */
+.navbar-admin-btn {
+  display: none !important;
+}
+
+/* Updated Hamburger styles - positioned at end */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1101;
+  margin-left: auto; /* Pushes to the end */
+}
+
+.hamburger span {
+  height: 4px;
+  width: 28px;
+  background: #111418;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    display: none !important;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .container {
+    padding: 12px 10px;
+  }
 }
 
 /* Faculty Title */
@@ -299,352 +439,87 @@ body {
   color: #ff9800;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  .nav a {
-    margin-left: 12px;
-    font-size: 0.9rem;
-  }
-
-  .faculty-card img {
-    height: 120px;
-  }
-
-  .tab-button {
-    flex: 1 1 100%;
-    text-align: center;
-  }
-}
-
-@media (max-width: 400px) {
-  .faculty-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #283046;
-  padding-top: 20px;
-  overflow-y: visible;
-  overflow-x: hidden;
-  transition: 0.3s;
-  z-index: 1000;
-}
-
-.sidebar h2 {
-  color: white;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.sidebar a {
-  display: block;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  background-color: #3f51b5;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 28px;
-  color: rgb(226, 14, 14);
-  cursor: pointer;
-}
-
-.open-btn {
-  font-size: 20px;
-  padding: 10px 15px;
-  margin: 20px;
-  cursor: pointer;
-  margin-left: 180%;
-}
-
-.content {
-  margin-left: 250px; /* matches sidebar width */
-  padding: 20px;
-  transition: margin-left 0.3s;
-}
-
-/* Hide sidebar */
-.sidebar.closed {
-  width: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.sidebar.closed + .content {
-  margin-left: 0;
-}
-
-/* Mobile Navigation Toggle */
-@media (max-width: 768px) {
-  .nav {
-    display: none;
-  }
-  .logo {
-    margin-left: 10px;
-  }
-
-  .open-btn {
-    display: block;
-    margin-left: 10px;
-  }
-
-  .content {
-    margin-left: 0;
-  }
-}
-
-/* Faculty Animation */
-.faculty-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease-in-out;
-}
-
-.faculty-popup.show {
-  display: flex;
-}
-
-.popup-content {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  max-width: 90%;
-  transform: perspective(1000px) rotateY(0deg) scale(0.5);
-  animation: zoomIn3D 0.5s forwards;
-  position: relative;
-}
-
-.popup-content img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  box-shadow: none; /* Remove shadow */
-  border: none; /* Remove border */
-  transition: transform 0.3s;
-}
-
-.popup-content img:hover {
-  transform: scale(1.05) rotate(3deg);
-}
-
-.faculty-details {
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  color: #22223b;
-}
-
-.faculty-details h3 {
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  font-size: 28px;
-  color: #555;
-  cursor: pointer;
-}
-
-@keyframes zoomIn3D {
-  0% {
-    transform: perspective(1000px) rotateY(-60deg) scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: perspective(1000px) rotateY(0deg) scale(1);
-    opacity: 1;
-  }
-}
-/* Ripple effect for buttons */
-.tab-button,
-.card button {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.tab-button::after,
-.card button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.tab-button:active::after,
-.card button:active::after {
-  width: 300px;
-  height: 300px;
-}
-
-/* Pulse animation for active buttons */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(63, 81, 181, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(63, 81, 181, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(63, 81, 181, 0);
-  }
-}
-
-.tab-button.active {
-  animation: pulse 2s infinite;
-}
-
-/* Particle explosion */
-.particle-loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, #3f51b5, #1a237e);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #ff9800;
-  border-radius: 50%;
-  animation: explode 2s ease-out infinite;
-}
-
-.particle:nth-child(1) {
-  animation-delay: 0s;
-  transform: rotate(0deg);
-}
-.particle:nth-child(2) {
-  animation-delay: 0.1s;
-  transform: rotate(45deg);
-}
-.particle:nth-child(3) {
-  animation-delay: 0.2s;
-  transform: rotate(90deg);
-}
-.particle:nth-child(4) {
-  animation-delay: 0.3s;
-  transform: rotate(135deg);
-}
-.particle:nth-child(5) {
-  animation-delay: 0.4s;
-  transform: rotate(180deg);
-}
-.particle:nth-child(6) {
-  animation-delay: 0.5s;
-  transform: rotate(225deg);
-}
-.particle:nth-child(7) {
-  animation-delay: 0.6s;
-  transform: rotate(270deg);
-}
-.particle:nth-child(8) {
-  animation-delay: 0.7s;
-  transform: rotate(315deg);
-}
-
-@keyframes explode {
-  0% {
-    transform: translateX(0) scale(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(100px) scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateX(200px) scale(0);
-    opacity: 0;
-  }
-}
-
-/* Add new color variable and usage for #f0f2f5 */
-:root {
-  --cs-bg-light: #f0f2f5;
-}
-
-/* Example usage for backgrounds and borders */
+/* Koyeb-style Navbar */
 body {
-  /* ...existing code... */
-  background-color: var(--cs-bg-light);
-  /* ...existing code... */
+  margin: 0;
+  background-color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
 }
-
-.tabs-section {
-  background: var(--cs-bg-light);
-  /* ...existing code... */
+.koyeb-navbar {
+  background-color: #efede7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 40px;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-
-.card,
-.faculty-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(63, 81, 181, 0.05);
-  border: 1px solid var(--cs-bg-light);
-  transition: box-shadow 0.3s;
+.logo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
-
-/* Footer background update */
-.footer,
-.main-footer {
-  background: var(--cs-bg-light);
+.logo svg {
+  height: 28px;
+  width: 28px;
+}
+.brand {
+  font-weight: 600;
+  font-size: 18px;
+  color: #111;
+  letter-spacing: 1px;
+}
+.nav-links {
+  display: flex;
+  background-color: #dcdad3;
+  border-radius: 8px;
+  padding: 8px 20px;
+  list-style: none;
+  gap: 24px;
+  margin: 0;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #111;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  padding: 4px 0;
+  display: inline-block;
+}
+.nav-links li a.active,
+.nav-links li a:hover {
   color: #3f51b5;
 }
-
-/* Optional: Section backgrounds */
-.section,
-.overview-section,
-.player-section {
-  background: var(--cs-bg-light);
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.login {
+  color: #111;
+  font-weight: bold;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 4px 10px;
+}
+.signup {
+  background-color: #111;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
 }
 
-/* Hamburger styles */
+/* Hamburger for mobile */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -653,26 +528,20 @@ body {
   height: 32px;
   justify-content: center;
   align-items: center;
+  margin-left: 16px;
   z-index: 1101;
 }
 .hamburger span {
   height: 4px;
   width: 28px;
-  background: #111418;
+  background: #111;
   margin: 3px 0;
   border-radius: 2px;
-  transition: 0.3s;
   display: block;
+  transition: 0.3s;
 }
-@media (max-width: 900px) {
-  .nav {
-    display: none !important;
-  }
-  .hamburger {
-    display: flex;
-  }
-}
-/* Side nav overlay */
+
+/* Side nav overlay and drawer */
 .side-nav-overlay {
   display: none;
   position: fixed;
@@ -721,7 +590,24 @@ body {
   background: #f0f2f5;
   color: #0c7ff2;
 }
+
+/* Responsive styles */
 @media (max-width: 900px) {
+  .koyeb-navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 8px;
+    gap: 10px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .auth-buttons {
+    justify-content: center;
+  }
+  .hamburger {
+    display: flex;
+  }
   .side-nav-overlay {
     display: block;
   }

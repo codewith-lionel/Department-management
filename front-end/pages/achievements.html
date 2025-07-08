@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Meta tags and page title -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Achievements - BSc CS Department</title>
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="../styles/achievements.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
@@ -13,38 +11,48 @@
     />
   </head>
   <body>
-    <!-- Navbar (consistent with other pages, no Tailwind) -->
-    <header class="header">
-      <div class="container" style="position: relative">
-        <h1 class="logo">CS Department</h1>
-        <!-- Desktop Navigation -->
-        <nav class="nav">
-          <a href="home.html" class="nav-link">Home</a>
-          <a href="achievements.html" class="nav-link">Achievements</a>
-          <a href="study.html" class="nav-link">Study Hub</a>
-          <a href="course.html" class="nav-link">Course</a>
-        </nav>
-        <!-- Hamburger for mobile -->
-        <div
-          class="hamburger"
-          id="hamburgerBtn"
-          aria-label="Open menu"
-          tabindex="0"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+    <!-- Koyeb-style Navbar with Mobile Side Nav -->
+    <header class="koyeb-navbar">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+          <g>
+            <path
+              d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
+              fill="#3f51b5"
+            ></path>
+          </g>
+        </svg>
+        <span class="brand">BSc CS</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="achievements.html" class="active">Achievements</a></li>
+        <li><a href="study.html">Study Hub</a></li>
+        <li><a href="course.html">Course</a></li>
+        <li><a href="forem.html">Forem</a></li>
+      </ul>
+
+      <!-- Hamburger for mobile -->
+      <div
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Open menu"
+        tabindex="0"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </header>
-    <!-- Side Nav Overlay and Drawer -->
+    <!-- Side Nav Overlay and Drawer (mobile) -->
     <div class="side-nav-overlay" id="sideNavOverlay"></div>
     <nav class="side-nav" id="sideNav">
       <span class="close-btn" id="sideNavCloseBtn">&times;</span>
       <a href="home.html" class="nav-link">Home</a>
-      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="achievements.html" class="nav-link active">Achievements</a>
       <a href="study.html" class="nav-link">Study Hub</a>
       <a href="course.html" class="nav-link">Course</a>
+      <a href="forem.html" class="nav-link">Forem</a>
       <a href="adminLogin.html" class="nav-link">Admin Panel</a>
     </nav>
 
@@ -101,8 +109,6 @@
         </a>
       </div>
     </footer>
-
-    <!-- JavaScript for sidebar/menu functionality -->
     <script src="../js/achievements.js"></script>
   </body>
 </html>

@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     projectsList.innerHTML = "";
     successList.innerHTML = "";
 
-    achievements.forEach(a => {
+    achievements.forEach((a) => {
       const card = document.createElement("div");
       card.className = "card";
       if (a.imageUrl) {
@@ -26,30 +26,41 @@ document.addEventListener("DOMContentLoaded", async () => {
       else if (a.type === "story") successList.appendChild(card);
     });
   } catch (err) {
-    awardsList.innerHTML = projectsList.innerHTML = successList.innerHTML = "<p>Failed to load achievements.</p>";
+    awardsList.innerHTML =
+      projectsList.innerHTML =
+      successList.innerHTML =
+        "<p>Failed to load achievements.</p>";
   }
 });
-const hamburgerBtn = document.getElementById("hamburgerBtn");
-const sideNav = document.getElementById("sideNav");
-const sideNavOverlay = document.getElementById("sideNavOverlay");
-const sideNavCloseBtn = document.getElementById("sideNavCloseBtn");
 
-function openSideNav() {
-  sideNav.classList.add("open");
-  sideNavOverlay.style.display = "block";
-  document.body.style.overflow = "hidden";
-}
-function closeSideNav() {
-  sideNav.classList.remove("open");
-  sideNavOverlay.style.display = "none";
-  document.body.style.overflow = "";
-}
+// Navbar hamburger and side nav functionality (same as home.js)
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const sideNav = document.getElementById("sideNav");
+  const sideNavOverlay = document.getElementById("sideNavOverlay");
+  const sideNavCloseBtn = document.getElementById("sideNavCloseBtn");
 
-hamburgerBtn.addEventListener("click", openSideNav);
-sideNavOverlay.addEventListener("click", closeSideNav);
-sideNavCloseBtn.addEventListener("click", closeSideNav);
+  function openSideNav() {
+    if (sideNav && sideNavOverlay) {
+      sideNav.classList.add("open");
+      sideNavOverlay.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+  }
 
-// Optional: Close on ESC key
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") closeSideNav();
+  function closeSideNav() {
+    if (sideNav && sideNavOverlay) {
+      sideNav.classList.remove("open");
+      sideNavOverlay.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  }
+
+  if (hamburgerBtn) hamburgerBtn.addEventListener("click", openSideNav);
+  if (sideNavOverlay) sideNavOverlay.addEventListener("click", closeSideNav);
+  if (sideNavCloseBtn) sideNavCloseBtn.addEventListener("click", closeSideNav);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeSideNav();
+  });
 });

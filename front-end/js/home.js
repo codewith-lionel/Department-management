@@ -12,31 +12,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  const navLinks = document.querySelectorAll(".nav-link");
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute("href").substring(1);
-      const targetContent = document.getElementById(targetId);
-      if (!targetContent) return;
-
-      window.scrollTo({
-        top: targetContent.offsetTop - 60,
-        behavior: "smooth",
-      });
-
-      tabButtons.forEach((btn) => btn.classList.remove("active"));
-      tabContents.forEach((content) => content.classList.remove("active"));
-
-      const activeBtn = Array.from(tabButtons).find(
-        (btn) => btn.getAttribute("data-tab") === targetId
-      );
-      if (activeBtn) activeBtn.classList.add("active");
-
-      targetContent.classList.add("active");
-    });
-  });
-
   /* -------------------- TIMETABLE BUTTON -------------------- */
   const viewBtn = document.getElementById("view-timetable-btn");
   const timetableImg = document.getElementById("timetable-img");
@@ -129,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  /* -------------------- FADE TRANSITION -------------------- */
+  /* -------------------- FADE TRANSITION (optional) -------------------- */
   function navigateWithFade(url) {
     document.body.classList.add("fade-out");
     setTimeout(() => {
@@ -149,3 +124,31 @@ function hideFacultyDetails(id) {
   const modal = document.getElementById(id);
   if (modal) modal.classList.remove("show");
 }
+
+// Hamburger and Side Nav functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const sideNav = document.getElementById("sideNav");
+  const sideNavOverlay = document.getElementById("sideNavOverlay");
+  const sideNavCloseBtn = document.getElementById("sideNavCloseBtn");
+
+  function openSideNav() {
+    sideNav.classList.add("open");
+    sideNavOverlay.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+  function closeSideNav() {
+    sideNav.classList.remove("open");
+    sideNavOverlay.style.display = "none";
+    document.body.style.overflow = "";
+  }
+
+  if (hamburgerBtn) hamburgerBtn.addEventListener("click", openSideNav);
+  if (sideNavOverlay) sideNavOverlay.addEventListener("click", closeSideNav);
+  if (sideNavCloseBtn) sideNavCloseBtn.addEventListener("click", closeSideNav);
+
+  // Optional: Close on ESC key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeSideNav();
+  });
+});
