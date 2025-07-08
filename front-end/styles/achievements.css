@@ -279,77 +279,62 @@ body {
   font-family: "Poppins", Arial, sans-serif;
 }
 .koyeb-navbar {
-  background-color: #efede7;
+  background-color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 14px 40px;
-  gap: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 0 32px;
+  height: 56px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
-.logo {
+
+/* Logo Container */
+.logo-container {
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  overflow: hidden;
 }
-.logo svg {
-  height: 28px;
-  width: 28px;
+.logo-container img,
+.logo-container svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
-.brand {
-  font-weight: 600;
-  font-size: 18px;
-  color: #111;
-  letter-spacing: 1px;
-}
+
+/* Nav Links */
 .nav-links {
   display: flex;
-  background-color: #dcdad3;
-  border-radius: 8px;
-  padding: 8px 20px;
   list-style: none;
   gap: 24px;
+  padding: 0;
   margin: 0;
+  height: 56px;
+  align-items: center;
 }
 .nav-links li a {
-  text-decoration: none;
+  font-weight: 500;
+  text-transform: none;
+  padding: 6px 12px;
+  font-size: 13px;
   color: #111;
-  font-size: 11px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
-  padding: 4px 0;
-  display: inline-block;
+  border-radius: 20px;
+  transition: 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 40px;
 }
 .nav-links li a.active,
 .nav-links li a:hover {
-  color: #3f51b5;
-}
-.auth-buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.login {
-  color: #111;
-  font-weight: bold;
-  font-size: 12px;
-  text-decoration: none;
-  padding: 4px 10px;
-}
-.signup {
-  background-color: #111;
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: bold;
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+  background: #ededed;
+  color: #000;
 }
 
 /* Hamburger for mobile */
@@ -361,7 +346,8 @@ body {
   height: 32px;
   justify-content: center;
   align-items: center;
-  margin-left: 16px;
+  margin-left: auto;
+  margin-right: 0;
   z-index: 1101;
 }
 .hamburger span {
@@ -374,8 +360,8 @@ body {
   transition: 0.3s;
 }
 
-/* Side nav overlay and drawer */
-.side-nav-overlay {
+/* Side nav overlay and left drawer */
+/* .side-nav-overlay {
   display: none;
   position: fixed;
   z-index: 1100;
@@ -384,7 +370,7 @@ body {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.3);
-}
+} */
 .side-nav {
   position: fixed;
   left: -260px;
@@ -427,25 +413,21 @@ body {
 /* Responsive styles */
 @media (max-width: 900px) {
   .koyeb-navbar {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px 8px;
-    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    height: 56px;
+    padding: 8px 8px;
+    gap: 8px;
   }
   .nav-links {
-    display: none;
-  }
-  .auth-buttons {
-    justify-content: center;
+    display: none !important;
   }
   .hamburger {
     display: flex;
+    margin-left: auto;
   }
-  .side-nav-overlay {
-    display: block;
-  }
-  .side-nav {
-    display: flex;
+  .logo-container {
+    margin-right: 0;
   }
 }
 /* Responsive */
@@ -559,6 +541,8 @@ body {
   height: 32px;
   justify-content: center;
   align-items: center;
+  margin-left: auto;
+  margin-right: 0;
   z-index: 1101;
 }
 .hamburger span {

@@ -330,10 +330,8 @@ function showUnits(subject) {
 
 // Hamburger and Side Nav functionality
 const hamburgerBtn = document.getElementById("hamburgerBtn");
-const sideNav = document.getElementById("sidebar");
-const sideNavOverlay = document.createElement("div");
-sideNavOverlay.className = "side-nav-overlay";
-document.body.appendChild(sideNavOverlay);
+const sideNav = document.getElementById("sideNav");
+const sideNavOverlay = document.getElementById("sideNavOverlay");
 
 function openSidebar() {
   sideNav.classList.remove("closed");
@@ -348,18 +346,12 @@ function closeSidebar() {
   document.body.style.overflow = "";
 }
 
-// Hamburger open
-const openBtn = document.querySelector(".open-btn");
-if (openBtn) openBtn.addEventListener("click", openSidebar);
-
-// Overlay click closes sidebar
+hamburgerBtn.addEventListener("click", openSidebar);
 sideNavOverlay.addEventListener("click", closeSidebar);
 
-// Close button in sidebar
 const closeBtn = sideNav.querySelector(".close-btn");
 if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
 
-// Optional: Close on ESC key
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeSidebar();
 });
