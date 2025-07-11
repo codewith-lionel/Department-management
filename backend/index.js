@@ -1,9 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
+require("dotenv").config();
+
+// Import routes
 const facultyRoutes = require("./routes/facultyRoutes");
 const achievementRoutes = require("./routes/achievementRoutes");
-require("dotenv").config();
+const foremImageRoutes = require("./routes/foremImageRoute"); // Add this line
 
 const app = express();
 app.use(cors());
@@ -19,15 +23,15 @@ mongoose
 // API routes
 app.use("/api/faculty", facultyRoutes);
 app.use("/api/achievements", achievementRoutes);
+app.use("/api/forem-images", foremImageRoutes); // Add this line
 
 // Serve faculty images
-const path = require("path");
 app.use(
   "/faculty-image",
   express.static(path.join(__dirname, "../front-end/faculty-image"))
 );
 
-// ✅ Serve frontend static files
+// Serve frontend static files
 app.use(express.static(path.join(__dirname, "../front-end")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../front-end/pages/index.html"));

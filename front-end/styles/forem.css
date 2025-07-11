@@ -275,3 +275,140 @@ body {
     margin-right: 0;
   }
 }
+
+/* Image Modal Styles */
+.image-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: white;
+  border-radius: 10px;
+  padding: 40px 20px 20px 20px; /* More top padding for close button */
+  text-align: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-description {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px; /* Move it outside the modal content */
+  right: -10px; /* Move it outside the modal content */
+  width: 40px;
+  height: 40px;
+  background: #ff4444;
+  color: white;
+  border: 3px solid white;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001; /* Ensure it's above everything */
+}
+
+.close-btn:hover {
+  background: #cc0000;
+  transform: scale(1.1);
+}
+
+/* Alternative close button style - choose one */
+.close-btn-alt {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+.close-btn-alt:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+/* Image Card Hover Effects */
+.image-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: 20px 15px 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover .image-overlay {
+  transform: translateY(0);
+}
+
+.image-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}

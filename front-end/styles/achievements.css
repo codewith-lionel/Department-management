@@ -563,16 +563,6 @@ body {
     margin-left: 16px;
   }
 }
-.side-nav-overlay {
-  display: none;
-  position: fixed;
-  z-index: 1100;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-}
 .side-nav {
   position: fixed;
   left: -260px;
@@ -612,9 +602,6 @@ body {
   color: #0c7ff2;
 }
 @media (max-width: 900px) {
-  .side-nav-overlay {
-    display: block;
-  }
   .side-nav {
     display: flex;
   }

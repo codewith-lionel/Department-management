@@ -1,0 +1,333 @@
+/* Modern Admin Page Styles for Manage Forem Images */
+
+/* Base styles */
+html,
+body {
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(120deg, #f7f7fa 70%, #e3e6f3 100%);
+  margin: 0;
+  color: #22223b;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Universal box-sizing for better mobile layouts */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Header */
+.admin-header {
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(63, 81, 181, 0.07);
+  padding: 0;
+}
+.admin-header .container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #3f51b5;
+  letter-spacing: 1px;
+  margin: 0;
+}
+.back-btn {
+  color: #fff;
+  background: linear-gradient(90deg, #3f51b5 60%, #5c6bc0 100%);
+  padding: 8px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(63, 81, 181, 0.1);
+}
+.back-btn:hover {
+  background: linear-gradient(90deg, #ff9800 60%, #ffc107 100%);
+  color: #22223b;
+}
+
+/* Main container */
+main.container {
+  max-width: 900px;
+  margin: 48px auto 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(63, 81, 181, 0.1),
+    0 1.5px 6px rgba(63, 81, 181, 0.08);
+  padding: 40px 28px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  min-height: 60vh;
+  transition: box-shadow 0.3s;
+}
+
+/* Ensure containers don't overflow */
+main.container,
+.admin-header .container {
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+/* Form Section */
+.form-section {
+  background: linear-gradient(100deg, #f7f7fa 70%, #e3e6f3 100%);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(63, 81, 181, 0.07);
+  padding: 32px 28px 24px 28px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s;
+}
+.form-section h2 {
+  color: #3f51b5;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  letter-spacing: 0.5px;
+}
+#forem-image-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#forem-image-form input[type="file"] {
+  flex: 1 1 220px;
+  padding: 10px 8px;
+  border-radius: 7px;
+  border: 1.5px solid #d1d5db;
+  background: #fff;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  box-shadow: 0 1px 4px rgba(63, 81, 181, 0.06);
+}
+#forem-image-form input[type="file"]:focus {
+  border-color: #3f51b5;
+  outline: none;
+}
+/* Colorful Add Image button */
+#forem-image-form .add-image-btn {
+  padding: 12px 34px;
+  border: none;
+  background: linear-gradient(90deg, #ff9800 0%, #ff5e62 50%, #3f51b5 100%);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.12rem;
+  letter-spacing: 1.2px;
+  box-shadow: 0 4px 16px rgba(255, 152, 0, 0.13),
+    0 2px 8px rgba(63, 81, 181, 0.1);
+  transition: background 0.25s, transform 0.18s, box-shadow 0.18s;
+  margin-left: 10px;
+  background-size: 200% 100%;
+  background-position: left;
+}
+#forem-image-form .add-image-btn:hover {
+  background-position: right;
+  color: #fff;
+  transform: translateY(-2px) scale(1.06) rotate(-1deg);
+  box-shadow: 0 8px 24px rgba(255, 94, 98, 0.18),
+    0 4px 16px rgba(63, 81, 181, 0.13);
+}
+
+/* List Section */
+.faculty-list-section {
+  background: linear-gradient(90deg, #f7f7fa 70%, #e3e6f3 100%);
+  border-radius: 12px;
+  padding: 28px 20px 20px 20px;
+  box-shadow: 0 2px 8px rgba(63, 81, 181, 0.06);
+}
+.faculty-list-section h2 {
+  color: #3f51b5;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+/* Make grid always fit screen */
+.faculty-grid {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Gallery grid (cards) */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 22px;
+  margin-top: 10px;
+}
+.forem-image-card {
+  background: linear-gradient(135deg, #f7f7fa 70%, #e3e6f3 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(63, 81, 181, 0.1),
+    0 1.5px 6px rgba(63, 81, 181, 0.08);
+  padding: 18px 12px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s, transform 0.2s;
+  position: relative;
+  border: 1.5px solid #e0e7ff;
+}
+.forem-image-card:hover {
+  box-shadow: 0 8px 32px rgba(63, 81, 181, 0.18),
+    0 2px 8px rgba(255, 152, 0, 0.1);
+  transform: translateY(-4px) scale(1.025);
+  border-color: #3f51b5;
+}
+.forem-image-card img {
+  width: 100%;
+  max-width: 150px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(63, 81, 181, 0.1);
+  border: 2px solid #fff;
+  background: #fff;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.forem-image-card img:hover {
+  box-shadow: 0 6px 18px rgba(63, 81, 181, 0.18);
+  border-color: #3f51b5;
+}
+.forem-image-card .delete-btn {
+  padding: 7px 20px;
+  border: none;
+  background: linear-gradient(90deg, #e53935 60%, #ff7043 100%);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 8px;
+  box-shadow: 0 1px 4px rgba(229, 57, 53, 0.13);
+}
+.forem-image-card .delete-btn:hover {
+  background: linear-gradient(90deg, #b71c1c 60%, #ff9800 100%);
+  color: #fff;
+  transform: scale(1.06);
+}
+
+/* Footer always at the bottom */
+.footer {
+  flex-shrink: 0;
+  text-align: center;
+  padding: 18px 0;
+  background: #f0f2f5;
+  color: #3f51b5;
+  border-top: 1px solid #ddd;
+  font-size: 0.95rem;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .admin-header .container,
+  main.container {
+    padding: 8px 2vw;
+  }
+  .faculty-grid {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 4vw;
+    gap: 8px;
+  }
+  .logo {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .back-btn {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+  main.container {
+    padding: 8px 2vw;
+    gap: 10px;
+    min-width: 0;
+  }
+  .form-section,
+  .faculty-list-section {
+    padding: 12px 2vw;
+    border-radius: 8px;
+  }
+  #forem-image-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  #forem-image-form input[type="file"] {
+    width: 100%;
+    font-size: 1rem;
+  }
+  #forem-image-form .add-image-btn {
+    width: 100%;
+    padding: 14px 0;
+    margin-left: 0;
+    font-size: 1rem;
+  }
+  .faculty-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .forem-image-card {
+    padding: 10px 4px;
+    border-radius: 8px;
+    min-width: 0;
+  }
+  .forem-image-card img {
+    height: 60px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .admin-header .container {
+    padding: 6px 2vw;
+  }
+  .form-section,
+  .faculty-list-section {
+    padding: 8px 1vw;
+  }
+  .forem-image-card {
+    padding: 6px 1px;
+    border-radius: 6px;
+  }
+  .forem-image-card img {
+    height: 40px;
+  }
+  .delete-btn {
+    padding: 4px 6px;
+    font-size: 0.85rem;
+  }
+}

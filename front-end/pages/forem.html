@@ -20,8 +20,8 @@
         <li><a href="home.html">Home</a></li>
         <li><a href="achievements.html">Achievements</a></li>
         <li><a href="study.html">Study Hub</a></li>
-        <li><a href="course.html">Course</a></li>
         <li><a href="forem.html" class="active">Forem</a></li>
+        <li><a href="course.html">Course</a></li>
       </ul>
       <div
         class="hamburger"
@@ -49,6 +49,14 @@
       <h1 class="gallery-title">Forem Events Gallery</h1>
       <div class="image-grid" id="foremGallery">
         <!-- Images will be loaded here dynamically -->
+      </div>
+    </div>
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeImageModal()">&times;</span>
+        <img id="modalImage" class="modal-image" />
+        <p id="modalDescription" class="modal-description"></p>
       </div>
     </div>
     <script src="../js/forem.js"></script>

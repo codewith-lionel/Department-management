@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Forem Images - Admin</title>
+    <link rel="stylesheet" href="../styles/manage-forem.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="admin-header">
+      <div class="container">
+        <h1 class="logo">Manage Forem Images</h1>
+        <a href="admin.html" class="back-btn">← Back to Dashboard</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="form-section">
+        <h2>Add New Image</h2>
+        <form id="forem-image-form" enctype="multipart/form-data">
+          <input
+            type="file"
+            id="forem-image"
+            name="image"
+            accept="image/*"
+            required
+          />
+          
+          <!-- Add this line -->
+          <button type="submit" class="add-image-btn">Add Image</button>
+        </form>
+      </section>
+
+      <section class="faculty-list-section">
+        <h2>Current Images</h2>
+        <div id="forem-image-list" class="faculty-grid"></div>
+      </section>
+    </main>
+
+    <script src="../js/manage-forem.js"></script>
+  </body>
+</html>
