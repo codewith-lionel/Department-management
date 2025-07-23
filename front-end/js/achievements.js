@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     awardsList.innerHTML = "";
     projectsList.innerHTML = "";
     successList.innerHTML = "";
+    
 
     achievements.forEach((a) => {
       const card = document.createElement("div");
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  
+
   if (hamburgerBtn) hamburgerBtn.addEventListener("click", openSideNav);
   if (sideNavOverlay) sideNavOverlay.addEventListener("click", closeSideNav);
   if (sideNavCloseBtn) sideNavCloseBtn.addEventListener("click", closeSideNav);
