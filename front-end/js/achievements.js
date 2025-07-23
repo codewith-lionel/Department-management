@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  
   if (hamburgerBtn) hamburgerBtn.addEventListener("click", openSideNav);
   if (sideNavOverlay) sideNavOverlay.addEventListener("click", closeSideNav);
   if (sideNavCloseBtn) sideNavCloseBtn.addEventListener("click", closeSideNav);

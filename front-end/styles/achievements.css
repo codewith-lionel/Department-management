@@ -13,8 +13,8 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
-  background: #fff url("../bg-images/acheivementsbg.jpg") no-repeat center
-    center fixed;
+  /* background: #fff url("../bg-images/acheivementsbg.jpg") no-repeat center
+    center fixed; */
   background-size: cover;
   color: #333;
   margin: 0;

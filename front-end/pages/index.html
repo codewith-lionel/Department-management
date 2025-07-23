@@ -13,6 +13,11 @@
     />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link rel="stylesheet" href="../styles/index.css" />
+    <!-- AOS Animate On Scroll CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
   </head>
   <body>
     <!-- Sidebar -->
@@ -119,9 +124,13 @@
             </div>
 
             <!-- New Section Added -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"
+              data-aos="fade-up"
+            >
               <div
                 class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition"
+                data-aos="slide-up"
               >
                 <button
                   id="openCoursesModal"
@@ -137,6 +146,8 @@
               </div>
               <div
                 class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition"
+                data-aos="slide-up"
+                data-aos-delay="100"
               >
                 <button
                   id="openEventsModal"
@@ -149,13 +160,15 @@
               </div>
               <div
                 class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition"
+                data-aos="slide-up"
+                data-aos-delay="200"
               >
                 <h3 class="font-bold mb-2">Achievements</h3>
                 <p>Discover our students' and faculty's success stories.</p>
               </div>
             </div>
 
-            <div class="mt-10">
+            <div class="mt-10" data-aos="fade-up">
               <h3 class="font-bold mb-4 text-xl">Testimonials</h3>
               <div
                 id="testimonial"
@@ -166,6 +179,7 @@
             <!-- Statistics Section -->
             <div
               class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
+              data-aos="fade-up"
             >
               <div
                 class="stat-card bg-white rounded-2xl shadow-lg flex flex-col items-center py-8 px-6 transition hover:shadow-2xl"
@@ -401,7 +415,7 @@
     </div>
 
     <!-- Contact Section -->
-    <section class="w-full bg-[#f7faff] py-10 mt-12">
+    <section class="w-full bg-[#f7faff] py-10 mt-12" data-aos="fade-up">
       <div class="max-w-lg mx-auto px-4">
         <h2 class="text-xl font-bold text-[#0c7ff2] mb-4">Contact Us</h2>
         <form id="contactForm" class="space-y-3">
@@ -473,5 +487,13 @@
 
     <!-- External JS -->
     <script src="../js/index.js"></script>
+    <!-- AOS Animate On Scroll JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 700, // Animation duration in ms
+        once: true, // Only animate once
+      });
+    </script>
   </body>
 </html>
