@@ -1,56 +1,35 @@
-function loadVideo(url, el) {
-  // Change video
-  document.getElementById("videoPlayer").src = url;
+document.addEventListener("DOMContentLoaded", function () {
+  // Full Stack
+  document.getElementById("explore-fsd").onclick = function () {
+    window.location.href = "fsd-course.html";
+  };
+  // Microsoft Tools
+  document.getElementById("explore-microsoft").onclick = function () {
+    window.location.href = "microsoft-course.html";
+  };
+  // Hardware & Networking
+  document.getElementById("explore-hardware").onclick = function () {
+    window.location.href = "hardware-course.html";
+  };
 
-  // Remove 'selected' from all cards
-  document.querySelectorAll(".video-card").forEach((card) => {
-    card.classList.remove("selected");
+  // Side nav logic
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const sideNav = document.getElementById('sideNav');
+  const sideNavOverlay = document.getElementById('sideNavOverlay');
+  const sideNavCloseBtn = document.getElementById('sideNavCloseBtn');
+
+  hamburgerBtn.addEventListener('click', function () {
+    sideNav.classList.add('open');
+    sideNavOverlay.style.display = 'block';
   });
 
-  // Add 'selected' to the clicked card
-  if (el) {
-    el.classList.add("selected");
-  }
+  sideNavCloseBtn.addEventListener('click', function () {
+    sideNav.classList.remove('open');
+    sideNavOverlay.style.display = 'none';
+  });
 
-  // Animate the video player
-  const player = document.getElementById("videoPlayer");
-  player.classList.remove("animate");
-  void player.offsetWidth; // trigger reflow
-  player.classList.add("animate");
-}
-
-/*slide bar */
-function closeSidebar() {
-  document.getElementById("sidebar").classList.add("closed");
-}
-
-function openSidebar() {
-  document.getElementById("sidebar").classList.remove("closed");
-}
-
-// Hamburger and Side Nav functionality
-const hamburgerBtn = document.getElementById("hamburgerBtn");
-const sideNav = document.getElementById("sideNav");
-const sideNavOverlay = document.getElementById("sideNavOverlay");
-const sideNavCloseBtn = document.getElementById("sideNavCloseBtn");
-
-function openSideNav() {
-  sideNav.classList.add("open");
-  sideNavOverlay.style.display = "block";
-  document.body.style.overflow = "hidden";
-}
-function closeSideNav() {
-  sideNav.classList.remove("open");
-  sideNavOverlay.style.display = "none";
-  document.body.style.overflow = "";
-}
-
-hamburgerBtn.addEventListener("click", openSideNav);
-sideNavOverlay.addEventListener("click", closeSideNav);
-sideNavCloseBtn.addEventListener("click", closeSideNav);
-
-// Optional: Close on ESC key
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") closeSideNav();
+  sideNavOverlay.addEventListener('click', function () {
+    sideNav.classList.remove('open');
+    sideNavOverlay.style.display = 'none';
+  });
 });
-

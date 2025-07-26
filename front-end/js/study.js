@@ -355,3 +355,149 @@ if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeSidebar();
 });
+
+// Question Bank Data Example
+const qbData = {
+  1: [
+    "CS101 - Fundamentals (2019, 2020, 2021)",
+    "Math101 - Calculus (2018, 2020)",
+    "English101 - Communication (2021)",
+  ],
+  2: [
+    "CS102 - Data Structures (2019, 2021)",
+    "Math102 - Discrete Math (2020)",
+    "Physics101 - Electronics (2021)",
+  ],
+  3: [
+    "CS201 - OOP (2020, 2021)",
+    "CS202 - DBMS (2019, 2021)",
+    "Math201 - Statistics (2020)",
+  ],
+  4: [
+    "CS203 - OS (2021)",
+    "CS204 - Networks (2020, 2021)",
+    "Math202 - Linear Algebra (2019)",
+  ],
+  5: [
+    "CS301 - Web Tech (2021)",
+    "CS302 - AI (2020, 2021)",
+    "CS303 - Compiler Design (2021)",
+  ],
+  6: [
+    "CS304 - ML (2021)",
+    "CS305 - Cyber Security (2020, 2021)",
+    "CS306 - Project (2021)",
+  ],
+};
+
+function showQB(sem) {
+  // Show subjects for the selected semester
+  document.getElementById(
+    "qb-modal-title"
+  ).textContent = `Semester ${sem} Subjects`;
+  const ul = document.getElementById("qb-modal-list");
+  ul.innerHTML = "";
+
+  if (!qbSubjects[sem]) {
+    ul.innerHTML = "<li>No subjects found.</li>";
+    return;
+  }
+
+  qbSubjects[sem].forEach((subject, idx) => {
+    const li = document.createElement("li");
+    li.textContent = subject.name;
+    li.classList.add("subject-link");
+    li.onclick = () => showQBQuestions(sem, idx);
+    ul.appendChild(li);
+  });
+
+  document.getElementById("qbModal").style.display = "flex";
+}
+
+function showQBQuestions(sem, subjectIdx) {
+  // Show question papers for the selected subject
+  const subject = qbSubjects[sem][subjectIdx];
+  document.getElementById(
+    "qb-modal-title"
+  ).textContent = `${subject.name} - Question Papers`;
+  const ul = document.getElementById("qb-modal-list");
+  ul.innerHTML = "";
+
+  if (!subject.questions || subject.questions.length === 0) {
+    ul.innerHTML = "<li>No question papers available.</li>";
+    return;
+  }
+
+  subject.questions.forEach((q) => {
+    const li = document.createElement("li");
+    li.textContent = `Year: ${q}`;
+    ul.appendChild(li);
+  });
+}
+
+function closeQBModal() {
+  document.getElementById("qbModal").style.display = "none";
+}
+// Question Bank Subjects Data
+const qbSubjects = {
+  1: [
+    {
+      name: "Computing Fundamentals and C Programming",
+      questions: ["2019", "2020", "2021"],
+    },
+    {
+      name: "Mathematical Structures for Computer Science",
+      questions: ["2018", "2020"],
+    },
+    {
+      name: "Digital Fundamentals architecture",
+      questions: ["2021"],
+    },
+  ],
+  2: [
+    {
+      name: "Digital Fundamentals architecture",
+      questions: ["2019", "2021"],
+    },
+    {
+      name: "Discrete Mathematics",
+      questions: ["2020"],
+    },
+  ],
+  3: [
+    {
+      name: "Java Programming",
+      questions: ["2020", "2021"],
+    },
+    {
+      name: "Data Structures",
+      questions: ["2019", "2021"],
+    },
+  ],
+  4: [
+    {
+      name: "SSOS",
+      questions: ["2021"],
+    },
+    {
+      name: "Linux and Shell Programming",
+      questions: ["2020", "2021"],
+    },
+  ],
+  5: [
+    {
+      name: "RDBMS & Oracle",
+      questions: ["2021"],
+    },
+    {
+      name: "Visual Basic",
+      questions: ["2020", "2021"],
+    },
+  ],
+  6: [
+    {
+      name: "Graphics and Multimedia",
+      questions: ["2021"],
+    },
+  ],
+};

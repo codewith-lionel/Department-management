@@ -504,6 +504,63 @@ body {
   background-color: #e0eaff;
 }
 
+/* Question Bank Section */
+.question-bank {
+  margin: 48px 0 32px 0;
+  text-align: center;
+}
+.qb-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 18px;
+}
+.qb-card {
+  background: #eaf4ff;
+  color: #0c7ff2;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 18px 32px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(12, 127, 242, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.qb-card:hover {
+  background: #0c7ff2;
+  color: #fff;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(12, 127, 242, 0.08);
+}
+.close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 1.5rem;
+  color: #0c7ff2;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {

@@ -29,7 +29,8 @@
         class="hamburger"
         id="hamburgerBtn"
         aria-label="Open menu"
-        tabindex="0" onclick="openSidebar()"
+        tabindex="0"
+        onclick="openSidebar()"
       >
         <span></span>
         <span></span>
@@ -56,6 +57,15 @@
       </div>
     </div>
 
+    <!-- Modal for displaying quiz bowl questions -->
+    <div id="qbModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeQBModal()">&times;</span>
+        <h3 id="qb-modal-title"></h3>
+        <ul id="qb-modal-list"></ul>
+      </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
       <h1>Welcome to Study Material Hub</h1>
@@ -75,6 +85,19 @@
         <div class="semester-card" onclick="showSubjects(4)">Semester 4</div>
         <div class="semester-card" onclick="showSubjects(5)">Semester 5</div>
         <div class="semester-card" onclick="showSubjects(6)">Semester 6</div>
+      </div>
+    </section>
+
+    <!-- Question Bank Section -->
+    <section id="question-bank" class="question-bank">
+      <h2 class="mat">Question Bank</h2>
+      <div class="qb-list">
+        <div class="qb-card" onclick="showQB(1)">Semester 1</div>
+        <div class="qb-card" onclick="showQB(2)">Semester 2</div>
+        <div class="qb-card" onclick="showQB(3)">Semester 3</div>
+        <div class="qb-card" onclick="showQB(4)">Semester 4</div>
+        <div class="qb-card" onclick="showQB(5)">Semester 5</div>
+        <div class="qb-card" onclick="showQB(6)">Semester 6</div>
       </div>
     </section>
 
