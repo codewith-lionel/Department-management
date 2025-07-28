@@ -1,74 +1,78 @@
-async function loadEvents() {
+document.addEventListener("DOMContentLoaded", () => {
+  const eventForm = document.getElementById("event-form");
   const eventList = document.getElementById("event-list");
-  eventList.innerHTML = "<p>Loading...</p>";
-  try {
-    const res = await fetch("http://localhost:5000/api/events");
-    const events = await res.json();
-    if (Array.isArray(events) && events.length > 0) {
+  const API_URL = "http://localhost:5000/api/events";
+
+  // Load events
+  async function loadEvents() {
+    eventList.innerHTML = "<p>Loading events...</p>";
+    try {
+      const res = await fetch(API_URL);
+      const events = await res.json();
+      if (!Array.isArray(events) || events.length === 0) {
+        eventList.innerHTML = "<p>No events found.</p>";
+        return;
+      }
       eventList.innerHTML = events
         .map(
           (event) => `
         <div class="event-card">
+          <h3>${event.title}</h3>
+          <p>${event.description}</p>
+          <small>${new Date(event.date).toLocaleDateString()}</small>
           ${
-            event.imageUrl
-              ? `<img src="${event.imageUrl}" alt="Event Image" />`
+            event.registrationLink
+              ? `<div class="mt-2"><a href="${event.registrationLink}" target="_blank" class="text-indigo-600 underline">Register</a></div>`
               : ""
           }
-          <div class="event-title">${event.title}</div>
-          <div class="event-date">${new Date(
-            event.date
-          ).toLocaleDateString()}</div>
-          <div class="event-description">${event.description}</div>
-          <button class="delete-btn" onclick="deleteEvent('${
-            event._id
-          }')">Delete</button>
+          <button class="delete-btn" data-id="${event._id}">&times;</button>
         </div>
       `
         )
         .join("");
-    } else {
-      eventList.innerHTML = "<p>No events found.</p>";
+    } catch (err) {
+      eventList.innerHTML = "<p>Error loading events.</p>";
     }
-  } catch (err) {
-    eventList.innerHTML = "<p>Could not load events.</p>";
   }
-}
 
-async function deleteEvent(id) {
-  if (!confirm("Delete this event?")) return;
-  await fetch(`http://localhost:5000/api/events/${id}`, { method: "DELETE" });
-  loadEvents();
-}
+  // Add event
+  eventForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-document.getElementById("event-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const title = document.getElementById("event-title").value;
-  const date = document.getElementById("event-date").value;
-  const description = document.getElementById("event-description").value;
-  const fileInput = document.getElementById("event-image");
-  const file = fileInput.files[0];
+    // Get form values
+    const title = eventForm.title.value;
+    const date = eventForm.date.value;
+    const description = eventForm.description.value;
+    const registrationLink = eventForm.registrationLink.value;
 
-  let imageUrl = "";
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = async function (e) {
-      imageUrl = e.target.result;
-      await submitEvent({ title, date, description, imageUrl });
-    };
-    reader.readAsDataURL(file);
-  } else {
-    await submitEvent({ title, date, description, imageUrl });
-  }
-});
-
-async function submitEvent(eventData) {
-  await fetch("http://localhost:5000/api/events", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(eventData),
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, date, description, registrationLink }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        eventForm.reset();
+        loadEvents();
+      } else {
+        alert("Failed to add event: " + (data.error || "Unknown error"));
+      }
+    } catch {
+      alert("Error adding event.");
+    }
   });
-  document.getElementById("event-form").reset();
-  loadEvents();
-}
 
-window.onload = loadEvents;
+  // Delete event
+  eventList.addEventListener("click", async (e) => {
+    if (e.target.classList.contains("delete-btn")) {
+      const id = e.target.getAttribute("data-id");
+      if (confirm("Delete this event?")) {
+        await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+        loadEvents();
+      }
+    }
+  });
+
+  loadEvents();
+});
