@@ -113,6 +113,45 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   window.navigateWithFade = navigateWithFade; // in case needed globally
+
+  // Load dynamic events from backend
+  async function loadEvents() {
+    const eventsList = document.getElementById("upcomingEvents");
+    if (!eventsList) return;
+    eventsList.innerHTML = "<li>Loading events...</li>";
+    try {
+      const res = await fetch("http://localhost:5000/api/events");
+      const events = await res.json();
+      if (!Array.isArray(events) || events.length === 0) {
+        eventsList.innerHTML = "<li>No upcoming events.</li>";
+        return;
+      }
+      eventsList.innerHTML = events
+        .map(
+          (event) => `
+        <li style="margin-bottom: 1.2em;">
+          <strong>${event.title}</strong>
+          <br>
+          <span style="color:#666;">${
+            event.date ? new Date(event.date).toLocaleDateString() : ""
+          }</span>
+          <br>
+          <span>${event.description || ""}</span>
+          ${
+            event.image
+              ? `<br><img src="${event.image}" alt="${event.title}" style="max-width:120px; margin-top:6px; border-radius:8px;">`
+              : ""
+          }
+        </li>
+      `
+        )
+        .join("");
+    } catch {
+      eventsList.innerHTML = "<li>Error loading events.</li>";
+    }
+  }
+
+  loadEvents();
 });
 
 /* -------------------- FACULTY MODAL FUNCTIONS (global) -------------------- */

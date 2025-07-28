@@ -8,6 +8,7 @@ require("dotenv").config();
 const facultyRoutes = require("./routes/facultyRoutes");
 const achievementRoutes = require("./routes/achievementRoutes");
 const foremImageRoutes = require("./routes/foremImageRoute"); // Add this line
+const eventRoutes = require("./routes/eventRoutes");
 
 const app = express();
 app.use(cors());
@@ -24,6 +25,8 @@ mongoose
 app.use("/api/faculty", facultyRoutes);
 app.use("/api/achievements", achievementRoutes);
 app.use("/api/forem-images", foremImageRoutes); // Add this line
+app.use("/api/events", eventRoutes);
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // Serve faculty images
 app.use(

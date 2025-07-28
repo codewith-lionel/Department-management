@@ -273,6 +273,24 @@ body {
   color: #ff9800;
 }
 
+/* Course Section Intro Paragraphs */
+.course-selection > .w-full {
+  background: linear-gradient(90deg, #eaf4ff 0%, #f7faff 100%);
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+}
+
+.course-selection > .w-full p {
+  font-family: "Poppins", "Inter", sans-serif;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #22223b;
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .course-selection {
