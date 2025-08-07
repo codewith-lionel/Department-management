@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Articles</title>
+    <link rel="stylesheet" href="../styles/manage-articles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="admin-header">
+      <div class="container">
+        <h1 class="logo">Manage Articles</h1>
+        <a href="admin.html" class="back-home-btn">← Back to Admin</a>
+      </div>
+    </header>
+    <main class="container" style="max-width: 700px">
+      <form id="article-form" class="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <h2 class="text-xl font-semibold text-indigo-700 mb-4 text-center">
+          Add New Article
+        </h2>
+        <div class="mb-4">
+          <label class="block mb-1 font-medium">Title</label>
+          <input
+            type="text"
+            name="title"
+            required
+            class="w-full border border-gray-300 rounded px-3 py-2"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block mb-1 font-medium">Content</label>
+          <textarea
+            name="content"
+            required
+            class="w-full border border-gray-300 rounded px-3 py-2"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-indigo-600 text-white font-bold py-2 px-6 rounded hover:bg-indigo-700 transition w-full"
+        >
+          Add Article
+        </button>
+      </form>
+      <h2 class="text-lg font-semibold text-indigo-700 mb-4 text-center">
+        Current Articles
+      </h2>
+      <div id="article-list"></div>
+    </main>
+    <script src="../js/manage-articles.js"></script>
+  </body>
+</html>

@@ -12,15 +12,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     awardsList.innerHTML = "";
     projectsList.innerHTML = "";
     successList.innerHTML = "";
-    
 
     achievements.forEach((a) => {
       const card = document.createElement("div");
-      card.className = "card";
+      card.className = "card achievement-card";
       if (a.imageUrl) {
         card.innerHTML += `<img src="${a.imageUrl}" alt="${a.title}" style="width:100%;max-height:180px;object-fit:cover;border-radius:10px;margin-bottom:12px;">`;
       }
-      card.innerHTML += `<h3>${a.title}</h3><p>${a.description}</p>`;
+      card.innerHTML += `
+        <h3 class="achievement-title">${a.title}</h3>
+        <p class="achievement-desc">${a.description}</p>
+        <span class="meta-date">${a.date}</span>
+        <a href="#" class="meta-link" style="display:block;margin-top:8px;color:#ff9800;text-decoration:underline;">View Details</a>
+      `;
 
       if (a.type === "award") awardsList.appendChild(card);
       else if (a.type === "project") projectsList.appendChild(card);
@@ -57,12 +61,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-
   if (hamburgerBtn) hamburgerBtn.addEventListener("click", openSideNav);
   if (sideNavOverlay) sideNavOverlay.addEventListener("click", closeSideNav);
   if (sideNavCloseBtn) sideNavCloseBtn.addEventListener("click", closeSideNav);
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") closeSideNav();
+  });
+});
+
+// Example: open modal with details
+document.addEventListener("DOMContentLoaded", () => {
+  // Delegate click for all .meta-link buttons
+  document.body.addEventListener("click", function (e) {
+    if (e.target.classList.contains("meta-link")) {
+      e.preventDefault();
+      // Example data, replace with dynamic achievement info
+      const card = e.target.closest(".achievement-card");
+      const title = card.querySelector(".achievement-title").textContent;
+      const desc = card.querySelector(".achievement-desc").textContent;
+      const date = card.querySelector(".meta-date").textContent;
+      const imgSrc = card.querySelector("img").src;
+      document.getElementById("modalDetails").innerHTML = `
+        <h2 style="color:#3f51b5;">${title}</h2>
+        <img src="${imgSrc}" style="width:100%;border-radius:8px;margin-bottom:1rem;">
+        <p>${desc}</p>
+        <p style="color:#888;">${date}</p>
+      `;
+      document.getElementById("achievementModal").style.display = "flex";
+    }
+    if (
+      e.target.id === "modalCloseBtn" ||
+      e.target.classList.contains("modal-overlay")
+    ) {
+      document.getElementById("achievementModal").style.display = "none";
+    }
   });
 });
