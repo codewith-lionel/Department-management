@@ -359,6 +359,9 @@ body {
 /* Footer */
 .footer,
 .main-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   text-align: center;
   padding: 24px 16px;
   font-size: 0.9rem;

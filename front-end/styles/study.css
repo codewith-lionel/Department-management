@@ -583,6 +583,9 @@ body {
 
 /* Footer styles */
 .main-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background: #fff;
   border-top: 1px solid #f0f2f5;
   padding: 32px 0 16px 0;

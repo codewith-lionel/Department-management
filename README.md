@@ -1,7 +1,7 @@
 ```markdown:README.md
-# Faculty Management Platform
+# BSC CS Department Website 
 
-A modern, full-stack web application for managing faculty profiles, achievements, and course content for academic departments. This project features a dynamic admin panel, responsive design, and PWA/mobile support.
+A modern, full-stack web application for managing faculty profiles, achievements, and course content for academic departments. This project features a dynamic admin panel, responsive design.
 
 ---
 
@@ -19,8 +19,8 @@ A modern, full-stack web application for managing faculty profiles, achievements
 - **Mobile-First & Responsive:**
   Fully responsive design for seamless experience on desktop and mobile devices.
 
-- **Progressive Web App (PWA):**
-  Installable on devices, with offline support for uninterrupted access.
+- **Study-Hub**
+  Fully fubctional study materialhub with question bank .
 
 - **Admin Panel:**
   Secure admin login for managing faculty, achievements, and course content.
@@ -43,18 +43,16 @@ A modern, full-stack web application for managing faculty profiles, achievements
 
 - **Admin Panel:**
   Secure login for administrators to manage all content (faculty, achievements, courses).
-
+  
+- **Study-Hub**
+  Fully fubctional study materialhub with question bank .
+  
 - **Landing Page:**
   Eye-catching, branded landing page with a "Get Started" call-to-action.
 
 - **Mobile-Responsive:**
   Works seamlessly on all devices with adaptive layouts.
 
-- **PWA Support:**
-  Installable as a web app with offline functionality.
-
-- **Optional Mobile App:**
-  Can be packaged as a native app using Capacitor.
 
 ---
 
@@ -65,15 +63,22 @@ A modern, full-stack web application for managing faculty profiles, achievements
 project-cs/
 │
 ├── backend/
-│ ├── models/ # Mongoose models (Faculty, Achievement, etc.)
-│ ├── routes/ # Express route handlers
-│ └── index.js # Express server entry point
+│   ├── models/        # Database models (Faculty, Achievement, etc.)
+│   ├── routes/        # Express route handlers
+│   ├── uploads/       # Uploaded images/files
+│   ├── .env           # Database connection string
+│   └── index.js       # Express server entry point
 │
 ├── front-end/
-│ ├── pages/ # HTML pages (landing, index, admin, etc.)
-│ ├── js/ # Frontend JavaScript files
-│ ├── styles/ # CSS files
-│ └── bg-images/ # Background and static images
+│   ├── pages/         # Public HTML pages (index, home, achievements, etc.)
+│   ├── js/            # Frontend JS for public pages
+│   ├── styles/        # CSS for public pages
+│   └── bg-images/     # Background/static images
+│
+├── admin/
+│   ├── pages/         # Admin HTML pages (admin.html, manage-articles.html, etc.)
+│   ├── js/            # JS for admin features (manage-articles.js, etc.)
+│   ├── styles/        # CSS for admin pages
 │
 ├── README.md
 └── ...
@@ -98,10 +103,16 @@ cd faculty-management-platform
   cd backend
   npm install
   ```
-- Create a `.env` file with your MongoDB URI:
+- Create a `.env` file with your database URI (MongoDB or Neon PostgreSQL):
+
   ```
+  # For MongoDB
   MONGO_URI=mongodb://localhost:27017/facultydb
+
+  # For Neon PostgreSQL
+  PG_URI=postgresql://username:password@host/dbname?sslmode=require
   ```
+
 - Start the backend server:
   ```bash
   node index.js
@@ -122,21 +133,7 @@ cd faculty-management-platform
 ## Tech Stack
 
 - **Frontend:** HTML5, CSS3, JavaScript (Vanilla)
-- **Backend:** Node.js, Express, MongoDB (Mongoose)
-- **PWA:** Service Worker, Manifest
-- **Mobile App (Optional):** Capacitor
-
----
-
-## Mobile App (Optional)
-
-To build as a native app:
-
-```bash
-npm install @capacitor/core @capacitor/cli
-npx cap add android ios
-npx cap open android
-```
+- **Backend:** Node.js, Express, MongoDB (Mongoose) or Neon PostgreSQL (`pg`)
 
 ---
 
