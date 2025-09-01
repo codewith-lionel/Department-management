@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome | BSc CS Department</title>
+
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
       rel="stylesheet"
@@ -11,78 +12,61 @@
       onload="this.rel='stylesheet'"
       href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900"
     />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Page styles -->
     <link rel="stylesheet" href="../styles/index.css" />
+
     <!-- AOS Animate On Scroll CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
     />
   </head>
-  <body>
+  <body style="font-family: Inter, 'Noto Sans', sans-serif">
     <!-- Sidebar -->
     <div id="sideNav" class="side-nav">
       <a href="home.html">Home</a>
       <a href="achievements.html">Achievements</a>
       <a href="study.html">Study Hub</a>
       <a href="course.html">Courses</a>
-      <a href="forum.html">Forum</a>
-      <a href="adminLogin.html" target="_blank">Admin Login</a>
+      <a href="forem.html">Forum</a>
+      <a href="../../admin/pages/adminLogin.html" target="_blank"
+        >Admin Login</a
+      >
     </div>
     <div id="sideNavOverlay" class="side-nav-overlay"></div>
 
     <div
       class="relative flex size-full min-h-screen flex-col bg-white overflow-x-hidden"
-      style="font-family: Inter, 'Noto Sans', sans-serif"
     >
       <div class="layout-container flex h-full grow flex-col">
-        <header
-          class="flex items-center justify-between border-b border-[#f0f2f5] px-6 py-4"
-        >
-          <div class="flex items-center gap-4 text-[#111418]">
-            <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none">
-                <path
-                  d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </div>
-            <h2 class="text-[#111418] text-lg font-bold">BSc CS</h2>
+        <header class="koyeb-navbar">
+          <div class="logo-container">
+            <img
+              src="../ac/ChatGPT Image Jul 9, 2025, 01_07_22 PM.png"
+              alt="Logo"
+            />
           </div>
-
-          <!-- Desktop Navigation -->
-          <nav class="desktop-nav flex-1 justify-end gap-8 hidden md:flex">
-            <div class="flex items-center gap-9">
-              <a class="text-[#111418] text-sm font-medium" href="home.html"
-                >Home</a
+          <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="study.html">Study Hub</a></li>
+            <li><a href="course.html">Courses</a></li>
+            <li><a href="forem.html">Forum</a></li>
+            <li>
+              <a href="../../admin/pages/adminLogin.html" target="_blank"
+                >Admin Login</a
               >
-              <a
-                class="text-[#111418] text-sm font-medium"
-                href="achievements.html"
-                >Achievements</a
-              >
-              <a class="text-[#111418] text-sm font-medium" href="study.html"
-                >Study Hub</a
-              >
-              <a class="text-[#111418] text-sm font-medium" href="course.html"
-                >Courses</a
-              >
-              <a class="text-[#111418] text-sm font-medium" href="forem.html"
-                >Forum</a
-              >
-            </div>
-            <a
-              href="../../admin/pages/adminLogin.html"
-              target="_blank"
-              class="px-4 py-2 bg-[#0c7ff2] text-white text-sm font-bold rounded-lg"
-            >
-              Admin Login
-            </a>
-          </nav>
-
-          <!-- Hamburger Menu -->
-          <div class="hamburger md:hidden" onclick="openSideNav()">
+            </li>
+          </ul>
+          <div
+            class="hamburger"
+            id="hamburgerBtn"
+            aria-label="Open menu"
+            tabindex="0"
+          >
             <span></span>
             <span></span>
             <span></span>
@@ -95,8 +79,8 @@
           >
             <div class="@container">
               <div class="@[480px]:p-4">
-                <div
-                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-start justify-end px-4 pb-10 @[480px]:px-10"
+                <section
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-start justify-end px-4 pb-10 @[480px]:px-10 animate-fadeIn"
                   style="
                     background-image: linear-gradient(
                         rgba(0, 0, 0, 0.1),
@@ -105,7 +89,7 @@
                       url('https://lh3.googleusercontent.com/aida-public/AB6AXuBECamucLL5G8PtpWFu_sZR-ylMVlRZINS0uc7p468kec6cwSlQJu7KVRIFNO8A2OkW63MujiuagbgosO-SxRp-Clz_SOftxyxl4MqlKEJ-4Tf_L5LqIEfyzhGtlrrw_sPOE3VzAu9rFy59k9uryJwye4PZU_iIM9WVP4RzBqtw_sl64Cu6dPfqDlZ-Ww4tSjc-3ItTuCPG6Awa42EbooWnr7C7JxATKfD0DutFFzSZNKtm2Beww2gmSjX8PfFQ1HHtn9mtZwM_14I');
                   "
                 >
-                  <div class="flex flex-col gap-2 text-left animate-fadeIn">
+                  <div class="flex flex-col gap-2 text-left">
                     <h1
                       class="text-white text-4xl font-black @[480px]:text-5xl"
                     >
@@ -119,16 +103,15 @@
                   <a
                     href="home.html"
                     class="mt-4 px-4 py-2 bg-[#0c7ff2] text-white text-sm font-bold rounded-lg"
-                    target="_blank"
                   >
                     Get Started
                   </a>
-                </div>
+                </section>
               </div>
             </div>
 
-            <!-- New Section Added -->
-            <div
+            <!-- Quick Links -->
+            <section
               class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"
               data-aos="fade-up"
             >
@@ -139,7 +122,7 @@
                 <button
                   id="openCoursesModal"
                   class="font-bold mb-2 text-xl text-[#0c7ff2] hover:underline focus:outline-none bg-transparent"
-                  style="cursor: pointer"
+                  type="button"
                 >
                   Our Programs
                 </button>
@@ -148,6 +131,7 @@
                   Computer Science.
                 </p>
               </div>
+
               <div
                 class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition"
                 data-aos="slide-up"
@@ -156,48 +140,56 @@
                 <button
                   id="openEventsModal"
                   class="font-bold mb-2 text-xl text-[#0c7ff2] hover:underline focus:outline-none bg-transparent"
-                  style="cursor: pointer"
+                  type="button"
                 >
                   Events
                 </button>
                 <p>See upcoming seminars, workshops, and hackathons.</p>
               </div>
+
               <div
                 class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition"
                 data-aos="slide-up"
                 data-aos-delay="200"
-                onclick="window.location.href='achievements.html' "
+                onclick="window.location.href='achievements.html'"
               >
                 <button
                   id="openAchievementsModal"
                   class="font-bold mb-2 text-xl text-[#0c7ff2] hover:underline focus:outline-none bg-transparent"
-                  style="cursor: pointer"
-                  onclick="window.location.href='achievements.html'"
+                  type="button"
                 >
                   Achievements
                 </button>
                 <p>Discover our students' and faculty's success stories.</p>
               </div>
-            </div>
+            </section>
 
-            <div class="mt-10" data-aos="fade-up">
-              <h3 class="font-bold mb-4 text-xl">Testimonials</h3>
+            <!-- Testimonials -->
+            <section
+              class="mt-10"
+              data-aos="fade-up"
+              aria-labelledby="testimonials-heading"
+            >
+              <h3 id="testimonials-heading" class="font-bold mb-4 text-xl">
+                Testimonials
+              </h3>
               <div
                 id="testimonial"
                 class="p-6 bg-white rounded-lg shadow text-gray-700"
               ></div>
-            </div>
+            </section>
 
-            <!-- Statistics Section -->
-            <div
+            <!-- Statistics -->
+            <section
               class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
               data-aos="fade-up"
+              aria-label="statistics"
             >
               <div
                 class="stat-card bg-white rounded-2xl shadow-lg flex flex-col items-center py-8 px-6 transition hover:shadow-2xl"
               >
                 <div class="stat-icon mb-4 text-[#0c7ff2]">
-                  <svg width="48" height="48" fill="none">
+                  <svg width="48" height="48" fill="none" aria-hidden="true">
                     <circle
                       cx="24"
                       cy="24"
@@ -228,11 +220,12 @@
                   Students
                 </div>
               </div>
+
               <div
                 class="stat-card bg-white rounded-2xl shadow-lg flex flex-col items-center py-8 px-6 transition hover:shadow-2xl"
               >
                 <div class="stat-icon mb-4 text-[#0c7ff2]">
-                  <svg width="48" height="48" fill="none">
+                  <svg width="48" height="48" fill="none" aria-hidden="true">
                     <circle
                       cx="24"
                       cy="24"
@@ -263,12 +256,13 @@
                   Faculty
                 </div>
               </div>
+
               <div
                 class="stat-card bg-white rounded-2xl shadow-lg flex flex-col items-center py-8 px-6 transition hover:shadow-2xl"
                 onclick="window.location.href='home.html'"
               >
                 <div class="stat-icon mb-4 text-[#0c7ff2]">
-                  <svg width="48" height="48" fill="none">
+                  <svg width="48" height="48" fill="none" aria-hidden="true">
                     <circle
                       cx="24"
                       cy="24"
@@ -299,11 +293,12 @@
                   Research Papers
                 </div>
               </div>
+
               <div
                 class="stat-card bg-white rounded-2xl shadow-lg flex flex-col items-center py-8 px-6 transition hover:shadow-2xl"
               >
                 <div class="stat-icon mb-4 text-[#0c7ff2]">
-                  <svg width="48" height="48" fill="none">
+                  <svg width="48" height="48" fill="none" aria-hidden="true">
                     <circle
                       cx="24"
                       cy="24"
@@ -334,7 +329,7 @@
                   Awards
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </div>
@@ -358,6 +353,7 @@
         font-size: 22px;
         cursor: pointer;
       "
+      aria-label="Scroll to top"
     >
       ↑
     </button>
@@ -366,6 +362,9 @@
     <div
       id="coursesModal"
       class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="coursesModalTitle"
     >
       <div
         class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full relative animate-fadeIn"
@@ -377,7 +376,12 @@
         >
           &times;
         </button>
-        <h2 class="text-2xl font-bold mb-4 text-[#0c7ff2]">Our Programs</h2>
+        <h2
+          id="coursesModalTitle"
+          class="text-2xl font-bold mb-4 text-[#0c7ff2]"
+        >
+          Our Programs
+        </h2>
         <ul class="list-disc pl-5 space-y-3 text-lg">
           <li>
             <span class="font-semibold text-[#0c7ff2]"
@@ -411,6 +415,9 @@
     <div
       id="eventsModal"
       class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="eventsModalTitle"
     >
       <div
         class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full relative animate-fadeIn"
@@ -422,113 +429,15 @@
         >
           &times;
         </button>
-        <h2 class="text-2xl font-bold mb-4 text-[#0c7ff2]">Upcoming Events</h2>
+        <h2
+          id="eventsModalTitle"
+          class="text-2xl font-bold mb-4 text-[#0c7ff2]"
+        >
+          Upcoming Events
+        </h2>
         <div id="eventsModalContent" class="space-y-4 text-lg"></div>
       </div>
     </div>
-    <!-- Facilities Section (Card Format) -->
-    <section class="w-full py-10 mt-12" data-aos="fade-up">
-      <div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-xl font-bold text-[#0c7ff2] mb-8">Facilities</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Computer Lab Card -->
-          <div
-            class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
-              alt="Computer Lab"
-              class="w-24 h-24 object-cover rounded-lg mb-4 shadow"
-            />
-            <h3 class="font-semibold text-[#0c7ff2] text-lg mb-2">
-              Computer Lab
-            </h3>
-            <p class="text-gray-700 text-base">
-              Fully equipped, modern lab with high-speed computers and a
-              projector for interactive learning.
-            </p>
-          </div>
-          <!-- Smart Classrooms Card -->
-          <div
-            class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
-              alt="Smart Classrooms"
-              class="w-24 h-24 object-cover rounded-lg mb-4 shadow"
-            />
-            <h3 class="font-semibold text-[#0c7ff2] text-lg mb-2">
-              Smart Classrooms
-            </h3>
-            <p class="text-gray-700 text-base">
-              Spacious classrooms with ICT facilities for digital teaching and
-              presentations.
-            </p>
-          </div>
-          <!-- Skill Enhancement Hours Card -->
-          <div
-            class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
-              alt="Skill Enhancement"
-              class="w-24 h-24 object-cover rounded-lg mb-4 shadow"
-            />
-            <h3 class="font-semibold text-[#0c7ff2] text-lg mb-2">
-              Skill Enhancement Hours
-            </h3>
-            <p class="text-gray-700 text-base">
-              Dedicated time for students to develop practical skills and work
-              on projects.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Contact Section -->
-    <section class="w-full py-10 mt-12" data-aos="fade-up">
-      <div class="max-w-lg mx-auto px-4">
-        <h2 class="text-xl font-bold text-[#0c7ff2] mb-4">Contact Us</h2>
-        <form id="contactForm" class="space-y-3">
-          <input
-            type="text"
-            id="contactName"
-            name="name"
-            required
-            placeholder="Your Name"
-            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#0c7ff2] bg-white"
-          />
-          <input
-            type="email"
-            id="contactEmail"
-            name="email"
-            required
-            placeholder="Your Email"
-            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#0c7ff2] bg-white"
-          />
-          <textarea
-            id="contactMessage"
-            name="message"
-            rows="3"
-            required
-            placeholder="Your Message"
-            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#0c7ff2] bg-white"
-          ></textarea>
-          <button
-            type="submit"
-            class="bg-[#0c7ff2] text-white font-bold px-6 py-2 rounded hover:bg-[#0056b3] transition w-full"
-          >
-            Send
-          </button>
-        </form>
-        <div
-          id="contactSuccess"
-          class="text-green-600 font-semibold mt-3 hidden"
-        >
-          Thank you! Your message has been redirected to the HOD.
-        </div>
-      </div>
-    </section>
 
     <!-- Footer Section -->
     <footer class="w-full bg-[#222] text-white py-6 mt-10">
@@ -542,12 +451,12 @@
           <span class="block text-xs text-gray-400 mt-1"
             >© 2025 Your College Name</span
           >
-          <span class="block text-xs text-gray-400 mt-1"
-            >Designed and Developed by
+          <span class="block text-xs text-gray-400 mt-1">
+            Designed and Developed by
             <a
               href="https://codewith-lionel.github.io/portfolio/"
               target="_blank"
-              class=" hover:text-orange-400 transition"
+              class="hover:text-orange-400 transition"
               >Lionel</a
             >
           </span>
@@ -567,13 +476,8 @@
 
     <!-- External JS -->
     <script src="../js/index.js"></script>
+
     <!-- AOS Animate On Scroll JS -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 700, // Animation duration in ms
-        once: false, // Only animate once
-      });
-    </script>
   </body>
 </html>
