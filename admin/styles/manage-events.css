@@ -1,53 +1,132 @@
+/* Modern Admin Events Management Design System */
+:root {
+  /* Gradient Color Palette */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-success: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  --gradient-warning: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+
+  /* Glassmorphism Properties */
+  --glass-background: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-backdrop: blur(20px);
+
+  /* Spacing System */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Typography */
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+
+  /* Transitions */
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* --- Base Styles --- */
 body {
-  font-family: 'Poppins', Arial, sans-serif;
-  background: linear-gradient(135deg, #f7f8fa 60%, #e3e6ff 100%);
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   margin: 0;
   padding: 0;
-  color: #222;
+  color: #1a1a2e;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 header {
-  background: linear-gradient(90deg, #5a55ae 0%, #3f51b5 60%, #ff9800 100%);
+  background: var(--gradient-primary);
   color: #fff;
-  padding: 28px 0 18px 0;
+  padding: var(--space-2xl) 0 var(--space-lg) 0;
   text-align: center;
-  box-shadow: 0 4px 16px rgba(63, 81, 181, 0.10);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.1rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: var(--font-weight-bold);
   letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .back-btn {
   display: inline-block;
-  margin-top: 14px;
-  background: #fff;
-  color: #3f51b5;
-  padding: 8px 22px;
-  border-radius: 7px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(63, 81, 181, 0.08);
-  transition: background 0.2s, color 0.2s;
-  border: none;
-}
-.back-btn:hover {
-  background: #3f51b5;
+  margin-top: var(--space-lg);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
   color: #fff;
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 main.container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 36px 18px;
+  padding: var(--space-2xl) var(--space-lg);
 }
 
 form {
-  background: #fff;
+  background: var(--glass-background);
   padding: 32px 24px;
   border-radius: 18px;
   box-shadow: 0 6px 24px rgba(63, 81, 181, 0.10);
